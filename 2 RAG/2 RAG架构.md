@@ -69,9 +69,9 @@ Graph RAG的关键模块：
 
 >  **RAG 是静态增强知识的模型**，**Agentic RAG 是动态利用知识的智能体。**
 
-处理流程如下（[图片来源](https://arxiv.org/pdf/2501.09136)）
+处理流程如下（[图片来源](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F65bf97c3-6f3d-4fd8-810a-b335f8795239_1160x796.gif)）
 
-![image-20251024165921334](./assets/image-20251024165921334.png)
+![img](./assets/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F65bf97c3-6f3d-4fd8-810a-b335f8795239_1160x796.gif)
 
 Agentic RAG 的关键特性包括：
 
