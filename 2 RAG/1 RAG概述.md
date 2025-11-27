@@ -35,6 +35,8 @@ RAG有两个重要指标：
 
 文本分块最核心在于如何权衡精度和上下文完整性。
 
+![rag](https://github.com/ginobefun/agentic-design-patterns-cn/blob/main/images/chapter14_fig1.png)
+
 ## 2.1 固定分块大小 
 
 按照固定的字符数或者token数来切割文本，例如chunk_size=100。适用于对文本结构要求低的简单场景。

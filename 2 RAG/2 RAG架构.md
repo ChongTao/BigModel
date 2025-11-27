@@ -1,8 +1,8 @@
 # 1 Naive RAG
 
-在模型生成答案前，先从外部知识库中检索与问题相关的内容，再把这些内容和问题一起输入模型。其流程如下([图片来源](https://miro.medium.com/v2/resize:fit:4800/format:webp/0*Ko_ihY8ecAukf2g1.png))：
+在模型生成答案前，先从外部知识库中检索与问题相关的内容，再把这些内容和问题一起输入模型。其流程如下
 
-<img src=".\assets\image-20251024160037738.png" alt="image-20251024160037738" style="zoom:80%;" />
+![naive](https://miro.medium.com/v2/resize:fit:4800/format:webp/0*Ko_ihY8ecAukf2g1.png)
 
 从上述可以，通常分为 4 个步骤：
 
@@ -24,9 +24,9 @@
 
 # 2 Advanced RAG
 
-Advanced RAG在 Naïve RAG 的限制基础上进行了改进，通过融入语义理解和增强的检索技术，如下图所示（[图片来源](https://miro.medium.com/v2/resize:fit:2000/format:webp/0*Gr_JqzdpHu7enWG9.png)）。
+Advanced RAG在 Naïve RAG 的限制基础上进行了改进，通过融入语义理解和增强的检索技术，如下图所示。
 
-![image-20251024161914572](./assets/image-20251024161914572.png)
+![advanced](https://miro.medium.com/v2/resize:fit:2000/format:webp/0*Gr_JqzdpHu7enWG9.png)
 
 主要集中三个方面：
 
@@ -78,4 +78,3 @@ Agentic RAG 的关键特性包括：
 - **自主决策**：代理根据查询的复杂性独立评估和管理检索策略
 - **迭代改进**：引入反馈循环以提高检索准确性和响应相关性
 - **工作流优化**：动态编排任务，实现实时应用的高效性
-
