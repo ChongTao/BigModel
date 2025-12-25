@@ -8,9 +8,9 @@ RAG（Retrieval Augmentation Generation）代表了三个核心的行为：
 
 > 同时在三个核心动作之外，还有一个embedding-编码
 
-RAG的处理流程如下图（[图片来源](https://medium.com/data-science-in-your-pocket/rag-framework-explained-and-faqs-d956ea0a6d16)）
+RAG的处理流程如下图:
 
-![img](./assets/1DCCQVim8YpP5SumqOpGIjw.png)
+![](https://www.dailydoseofds.com/content/images/size/w1000/2024/10/rag.gif)
 
 处理流程： 
 
@@ -35,7 +35,7 @@ RAG有两个重要指标：
 
 文本分块最核心在于如何权衡精度和上下文完整性。
 
-![rag](https://github.com/ginobefun/agentic-design-patterns-cn/blob/main/images/chapter14_fig1.png)
+![](https://www.dailydoseofds.com/content/images/2024/11/chunking-rag.gif)
 
 ## 2.1 固定分块大小 
 
@@ -220,9 +220,18 @@ HyDE，Hypothetical Document Embeddings，是正向query检索增强的一种方
    - 先用粗检索（BM25 或稠密向量检索）召回 Top-k 文档
    - 再用 ColBERT 对候选文档进行 Late Interaction 精排
 
+# 七 RAG常见的问题
+
+## 7.1 检索的结果是否有用
+
+![](https://www.dailydoseofds.com/content/images/2025/02/image-3.png)
+
+有些检索到的文档虽然基于向量看起来非常相似，但却无法回答用户问题，导致准确率降低
 
 
 
+## 7.2 文档分块
 
+文档分块多大比较合适，如果较小可能缺少关键的上下文，如果过大，无关的细节将会稀释回复的内容，最佳分块应该以使用场景为准，但如何平衡信息和上下文非常重要。
 
-
+![](https://www.dailydoseofds.com/content/images/2025/02/image-2.png)
