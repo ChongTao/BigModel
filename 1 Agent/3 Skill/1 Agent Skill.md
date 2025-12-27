@@ -35,7 +35,7 @@ trigger_conditions:
   - 用户询问"PDF可填写字段有哪些"
 ```
 
-
+Anthropic 在 GitHub 上开源了一系列的 Agent Skills：https://github.com/anthropics/skills
 
 # 3 Agent Skill如何工作
 
