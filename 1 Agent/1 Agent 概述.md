@@ -39,8 +39,6 @@ Agent能够自主感知环境、做出决策、执行动作的智能体。
 - 任务目标明确但路径不确定：排障、数据调查、复杂代码修复
 - 工具有失败概率：权限/限流/网络波动/结果不稳定
 
-
-
 ## 1.2 记忆
 
 记录历史交互、任务状态或外部信息，使智能体能够在多轮交互或复杂任务中保持上下文连续性和决策一致性。在大语言模型智能体的研究文献中，主要区分为两种内存类型：
@@ -60,7 +58,3 @@ Agent能够自主感知环境、做出决策、执行动作的智能体。
 -  **Agent 是自治决策（Goal-driven）**
 
 ![](https://mmbiz.qpic.cn/sz_mmbiz_png/j3gficicyOvauNZyziaHia56WajsqXbwHetmLJB9ibxhH3sv1v13JicVPwldlCbJEfBdHsIA5NhH9iauZsgeJmGFzJzPQ/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1#imgIndex=1)
-
-
-
-# 二 Multi Agent

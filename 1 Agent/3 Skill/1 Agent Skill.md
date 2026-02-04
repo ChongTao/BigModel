@@ -2,6 +2,8 @@
 
 Agent Skill是 Anthropic为其旗下 Claude 系列模型推出的模块化能力扩展机制，核心是将完成特定任务所需的指令、脚本、资源等打包成含 SKILL.md 文件的目录，供智能体动态发现和加载，以此让通用模型获得专业领域能力，且具备可复用、可组合的特性，更多详细见：[Skill](https://claude.com/blog/skills)。
 
+Skill就是给AI写”说明书“，告诉AI遇到类似的任务该如何做。
+
 # 2 Agent Skill的结构
 
 Claude 官方的 PDF 操作 Skill，具体构成如下：
@@ -49,8 +51,23 @@ Anthropic 在 GitHub 上开源了一系列的 Agent Skills：https://github.com/
 
 - **强大**：Skill包括可执行的代码
 
-# 4 Skill与MCP关系
+# 4 补充
+
+## 4.1 Tool和Skill
+
+- Skill：是一段可复用的业务逻辑，如业务流程编排（如信息抽取Skill）
+- Tool：Agent调用的外部接口，如搜索引擎
+
+Skill是会做什么，而tool是用什么去做。
+
+## 4.2 Skill与MCP关系
 
 MCP 负责连接外部世界，Skills 负责提供专业知识。开发者已经开始用 Skills 编排多个 MCP 工具的复杂工作流了。
 
 ![](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*9pl_KADfXHgPuA9y)
+
+
+
+## 4.3 Skiil 示例
+
+使用OpenSkills的openskills sync命令，通过Cursor执行对应的Skill。https://mp.weixin.qq.com/s/GUtYULF6YEzX9B4eiyS55g
