@@ -94,4 +94,4 @@ MCP基于**JSON-RPC 2.0**的协议，提供常见方法：
   
   ```
 
-  
+  ![](https://www.dailydoseofds.com/content/images/2025/06/mcp-only--1-.gif)

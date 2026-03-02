@@ -71,3 +71,11 @@ MCP 负责连接外部世界，Skills 负责提供专业知识。开发者已经
 ## 4.3 Skiil 示例
 
 使用OpenSkills的openskills sync命令，通过Cursor执行对应的Skill。https://mp.weixin.qq.com/s/GUtYULF6YEzX9B4eiyS55g
+
+
+
+# 5 参考网站
+
+- https://skill0.io/
+- https://skillsmp.com/zh
+

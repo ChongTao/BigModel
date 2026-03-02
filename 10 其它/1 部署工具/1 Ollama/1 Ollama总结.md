@@ -61,22 +61,3 @@ Ollama 官方下载地址：https://ollama.com/download。
 | `ollama version` | 查看 Ollama 版本号                                          |
 | `ollama help`    | 查看所有命令的帮助信息（可加具体命令，如`ollama help run`） |
 | `ollama logs`    | 查看 Ollama 运行日志（调试排错用）                          |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
