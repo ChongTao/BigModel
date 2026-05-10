@@ -37,6 +37,10 @@ trigger_conditions:
   - 用户询问"PDF可填写字段有哪些"
 ```
 
+> name: 技能的名称，小写字母、数字和连字符。
+>
+> description：触发条件描述
+
 Anthropic 在 GitHub 上开源了一系列的 Agent Skills：https://github.com/anthropics/skills
 
 # 3 Agent Skill如何工作
