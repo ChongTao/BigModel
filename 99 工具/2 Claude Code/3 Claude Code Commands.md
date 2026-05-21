@@ -25,7 +25,7 @@ Requirements:
 - Check panic safety
 
 Target:
-{{args}}
+$ARGUMENTS
 ```
 
 ### 1.1.2 命令位置及作用域
@@ -55,10 +55,10 @@ Review the Go code following these rules:
 - Follow Uber Go Style Guide
 
 Target file:
-{{args}}
+$ARGUMENTS
 ```
 
-然后执行`/golang-review user_service.go`，Claude会自动加载命令模板，替换 `{{args}}`，读取目标文件和执行分析结果。
+然后执行 `/project:golang-review user_service.go`，Claude 会自动加载命令模板，将 `$ARGUMENTS` 替换为 `user_service.go`，读取目标文件并执行分析。
 
 ## 1.2 Commands与CLAUDE.md的关系
 

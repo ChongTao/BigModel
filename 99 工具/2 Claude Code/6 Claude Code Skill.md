@@ -276,5 +276,5 @@ allowed-tools: Bash(git add *) Bash(git commit *) Bash(git status *)
 
 ## 10 参考
 
-- https://code.claude.com/docs/zh-CN/skills
+- https://docs.anthropic.com/zh-CN/docs/claude-code/skills
 - andrej-karpathy-skills：受 Karpathy 启发的 Claude Code 指南，封装为技能包 https://github.com/multica-ai/andrej-karpathy-skills

@@ -300,7 +300,7 @@ claude plugin validate
 
 ## 8 参考
 
-- https://code.claude.com/docs/zh-CN/plugins
-- https://code.claude.com/docs/zh-CN/discover-plugins
+- https://docs.anthropic.com/zh-CN/docs/claude-code/plugins
+- https://docs.anthropic.com/zh-CN/docs/claude-code/discover-plugins
 - https://waytoagi.feishu.cn/wiki/ZNURw257lix59ekldGbczPDpnfd
 - https://github.com/LangGPT/awesome-claude-code/blob/main/README-CN.md
