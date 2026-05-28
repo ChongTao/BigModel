@@ -18,6 +18,9 @@ Claude Code 是 Anthropic 推出的、面向开发者的 **AI 编程助手形态
 
    ```sh
    npm install -g @anthropic-ai/claude-code
+   
+   // 更新
+   npm update -g @anthropic-ai/claude-code
    ```
 
 3. 写入配置文件
