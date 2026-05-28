@@ -76,6 +76,8 @@ Claude 读取 `CLAUDE.md` 时会自动加载引用的文件内容：
 
 - **用命令式语言**：指令越明确，Claude 遵守的概率越高。
 
+- **规则太多**：拆分到 `.claude/rules/`目录下按需加载。
+
 ### 1.1.3 CLAUDE.local.md -- 个人本地指令
 
 `CLAUDE.local.md` 是 `CLAUDE.md` 的个人覆盖文件，优先级高于 `CLAUDE.md`，用于存放不适合提交到 git 的个人偏好设置。

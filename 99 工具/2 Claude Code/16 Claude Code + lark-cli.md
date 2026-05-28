@@ -368,3 +368,86 @@ lark-cli im +messages-send `
 - 基于任务进展自动生成周报/日报草稿。
 - 按固定章节（进展、风险、计划）重写已有文档。
 - 生成可直接执行的 `lark-cli` 命令草案，并附参数解释。
+
+# 13 Feishu-Claude-Code-Bridge（飞书集成）
+
+## 13.1 项目简介
+
+**Lark-Channel-Bridge** 是一个轻量级集成工具，直接将飞书消息与本地 Claude Code CLI 连接，让用户无需离开飞书即可与Claude进行实时交互。
+
+项目地址：https://github.com/zarazhangrui/feishu-claude-code-bridge
+
+## 13.2 核心功能
+
+| 功能 | 说明 |
+|------|------|
+| **飞书对话** | 在飞书内直接与Claude聊天，无需切换应用 |
+| **实时展示** | Claude的文本回复和工具调用结果实时出现在同一张卡片上 |
+| **文件处理** | 支持直接上传图片和文件供Claude分析处理 |
+| **会话隔离** | 每个聊天保持独立session，互不影响 |
+| **智能调度** | 新消息可中断旧任务；快速连发消息自动合并处理 |
+| **多工作空间** | 支持在不同团队/工作空间间切换 |
+
+## 13.3 技术要求
+
+- **Node.js 20+**
+- **Claude CLI** 已登录
+- **飞书PersonalAgent应用** 已配置
+
+## 13.4 部署方式
+
+### 前台运行
+```bash
+lark-channel-bridge run
+```
+
+### 后台守护进程
+支持 macOS、Linux 和 Windows，自动恢复崩溃：
+```bash
+# 启动守护进程
+lark-channel-bridge daemon start
+
+# 停止守护进程
+lark-channel-bridge daemon stop
+
+# 查看状态
+lark-channel-bridge daemon status
+```
+
+## 13.5 访问控制
+
+支持可选的权限管理，满足个人到团队协作的不同场景：
+
+- **用户白名单**：限制只有指定用户可使用
+- **群白名单**：限制只有指定群聊可使用
+- **管理员限制**：只允许管理员执行特定操作
+
+配置示例：
+```bash
+lark-channel-bridge run --user-whitelist "user_id1,user_id2"
+lark-channel-bridge run --chat-whitelist "chat_id1,chat_id2"
+```
+
+## 13.6 应用场景
+
+| 场景 | 优势 |
+|------|------|
+| **团队代码讨论** | 在群里实时与Claude讨论代码，分享截图或文件 |
+| **文档快速处理** | 上传文件让Claude分析、整理、翻译或总结 |
+| **问题即时解答** | 无需切应用，在飞书里即时提问获得AI辅助 |
+| **工作流集成** | 结合`lark-cli`实现文档生成→发布→通知的自动化流程 |
+
+## 13.7 与 lark-cli 的配合
+
+**推荐流程**：
+1. 在飞书群里与Claude讨论并生成草案
+2. Claude 在本地生成或整理 Markdown 文件
+3. 使用 `lark-cli docs +create` 发布到飞书文档
+4. 使用 `lark-cli im +messages-send` 在群里分享链接
+5. 必要时用 `task`/`calendar` 跟踪后续动作
+
+这样可以将"**实时交互**"（飞书Bridge）和"**结构化发布**"（lark-cli）分离，各司其职。
+
+## 13.8 许可证
+
+MIT
