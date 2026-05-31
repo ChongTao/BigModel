@@ -1,14 +1,203 @@
 # BigModel
-参考资料：
 
-NLP教程：https://www.runoob.com/nlp/nlp-tutorial.html
+`BigModel` 是一个围绕大模型应用与工程实践整理的知识库项目。内容不是按单一技术栈堆砌，而是按主题拆分，覆盖 Agent、RAG、NLP、LLM、开源框架、开源软件与 AI 工具等方向，适合做概念梳理、资料归档和实践入门。
 
-Foundations-of-LLMs：https://github.com/ZJU-LLMs/Foundations-of-LLMs
+项目当前更偏“持续沉淀型文档仓库”，目标不是做教程网站，而是把常见概念、核心模块、框架介绍和一些实践认知放到统一目录里，便于后续持续补充。
 
+## 项目定位
 
+这个仓库主要解决三类问题：
 
+- 把大模型相关知识按主题整理，降低资料分散带来的查找成本
+- 把常见框架、工具、协议和工程概念做成中文化摘要，便于快速建立知识地图
+- 为后续继续扩展文档、补充实践案例和对比分析提供统一结构
 
+## 知识地图
 
-**Scaling Laws** 指的是：
+### 1. Agent
 
-> 当模型参数规模、训练数据规模、计算量增加时，模型性能会按照某种“幂律关系”稳定提升。
+目录：`1 Agent/`
+
+这一部分聚焦智能体相关概念，包括：
+
+- Agent 基础认知
+- 记忆机制
+- Skill 能力封装
+- Agent 框架与协议
+
+推荐阅读：
+
+- [1 Agent/1 Agent 概述.md](1%20Agent/1%20Agent%20%E6%A6%82%E8%BF%B0.md)
+- [1 Agent/2 记忆/1 记忆概述.md](1%20Agent/2%20%E8%AE%B0%E5%BF%86/1%20%E8%AE%B0%E5%BF%86%E6%A6%82%E8%BF%B0.md)
+- [1 Agent/3 Skill/1 Agent Skill.md](1%20Agent/3%20Skill/1%20Agent%20Skill.md)
+- [1 Agent/10 Agent框架/1 Agent框架.md](1%20Agent/10%20Agent%E6%A1%86%E6%9E%B6/1%20Agent%E6%A1%86%E6%9E%B6.md)
+
+### 2. RAG
+
+目录：`2 RAG/`
+
+这一部分围绕检索增强生成展开，内容包括：
+
+- RAG 基础概念
+- RAG 架构设计
+- 向量检索
+- Agentic RAG
+- 开源方案与竞品
+
+推荐阅读：
+
+- [2 RAG/1 RAG概述.md](2%20RAG/1%20RAG%E6%A6%82%E8%BF%B0.md)
+- [2 RAG/2 RAG架构.md](2%20RAG/2%20RAG%E6%9E%B6%E6%9E%84.md)
+- [2 RAG/3 向量检索.md](2%20RAG/3%20%E5%90%91%E9%87%8F%E6%A3%80%E7%B4%A2.md)
+- [2 RAG/10 Agentic RAG.md](2%20RAG/10%20Agentic%20RAG.md)
+
+### 3. NLP
+
+目录：`3 NLP/`
+
+这一部分偏基础能力层，主要包括：
+
+- NLP 简介
+- Query 处理相关概念
+- 召回算法
+
+推荐阅读：
+
+- [3 NLP/1 NLP简介.md](3%20NLP/1%20NLP%E7%AE%80%E4%BB%8B.md)
+- [3 NLP/2 query处理相关概念.md](3%20NLP/2%20query%E5%A4%84%E7%90%86%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5.md)
+- [3 NLP/3 召回算法.md](3%20NLP/3%20%E5%8F%AC%E5%9B%9E%E7%AE%97%E6%B3%95.md)
+
+### 4. LLM
+
+目录：`4 LLM/`
+
+这一部分是当前仓库的核心模块之一，覆盖：
+
+- 提示工程
+- 上下文工程
+- Function Calling
+- MCP
+- Harness
+- 大模型基础原理
+
+其中，`Harness` 模块当前补充了更完整的介绍文档，并明确说明了 `Prompt -> Context -> Harness` 的递进关系。
+
+推荐阅读：
+
+- [4 LLM/1 提示工程/1 prompt engineering.md](4%20LLM/1%20%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B/1%20prompt%20engineering.md)
+- [4 LLM/2 上下文工程/1 context Engineering.md](4%20LLM/2%20%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B/1%20context%20Engineering.md)
+- [4 LLM/3 MCP.md](4%20LLM/3%20MCP.md)
+- [4 LLM/3 Harness/2 Harness介绍.md](4%20LLM/3%20Harness/2%20Harness%E4%BB%8B%E7%BB%8D.md)
+- [4 LLM/10 大模型原理/1 Transformer.md](4%20LLM/10%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86/1%20Transformer.md)
+
+### 5. 开源框架
+
+目录：`5 开源框架/`
+
+这一部分主要汇总常见 AI 应用框架与编排平台，包括：
+
+- Dify
+- LangChain
+- LangGraph
+- AutoGPT
+- CrewAI
+- AutoGen
+- Coze
+- n8n
+
+推荐阅读：
+
+- [5 开源框架/1 Dify/1 dify.md](5%20%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/1%20Dify/1%20dify.md)
+- [5 开源框架/2 LangChain/1 LangChain.md](5%20%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/2%20LangChain/1%20LangChain.md)
+- [5 开源框架/2 LangChain/1 LangGraph/1 LangGraph介绍.md](5%20%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/2%20LangChain/1%20LangGraph/1%20LangGraph%E4%BB%8B%E7%BB%8D.md)
+- [5 开源框架/6 AutoGen.md](5%20%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/6%20AutoGen.md)
+
+### 6. 开源软件
+
+目录：`8 开源软件/`
+
+这一部分用于记录年度维度的开源软件和项目资料，目前已有 2026 年相关内容。
+
+推荐阅读：
+
+- [8 开源软件/2026/开源软件汇总.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2026/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E6%B1%87%E6%80%BB.md)
+- [8 开源软件/2026/1 nndeploy/1 nndeploy.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2026/1%20nndeploy/1%20nndeploy.md)
+- [8 开源软件/2026/2 GPT-Load/1 gpt-load.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2026/2%20GPT-Load/1%20gpt-load.md)
+
+### 7. 论文与博客
+
+目录：`9 论文&博客/`
+
+这一部分用于收录值得沉淀的论文、综述和博客文章。
+
+推荐阅读：
+
+- [9 论文&博客/1 Memory in the Age of AI Agents A Survey.md](9%20%E8%AE%BA%E6%96%87%26%E5%8D%9A%E5%AE%A2/1%20Memory%20in%20the%20Age%20of%20AI%20Agents%20A%20Survey.md)
+- [9 论文&博客/2 12 RAG Pain Points and Proposed Solutions.md](9%20%E8%AE%BA%E6%96%87%26%E5%8D%9A%E5%AE%A2/2%2012%20RAG%20Pain%20Points%20and%20Proposed%20Solutions.md)
+
+### 8. 其它
+
+目录：`10 其它/`
+
+用于承接暂时不适合放到主模块中的内容，例如：
+
+- 部署工具
+- 大模型相关技术
+- 推理框架
+- OpenClaw
+
+推荐阅读：
+
+- [10 其它/1 部署工具/1 Ollama/1 Ollama总结.md](10%20%E5%85%B6%E5%AE%83/1%20%E9%83%A8%E7%BD%B2%E5%B7%A5%E5%85%B7/1%20Ollama/1%20Ollama%E6%80%BB%E7%BB%93.md)
+- [10 其它/2 大模型相关技术/1 OneApi/1 OneApi.md](10%20%E5%85%B6%E5%AE%83/2%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF/1%20OneApi/1%20OneApi.md)
+- [10 其它/3 推理框架/1 推理框架介绍.md](10%20%E5%85%B6%E5%AE%83/3%20%E6%8E%A8%E7%90%86%E6%A1%86%E6%9E%B6/1%20%E6%8E%A8%E7%90%86%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D.md)
+
+### 9. 工具
+
+目录：`99 工具/`
+
+这一部分主要记录常见 AI 开发工具的使用说明与经验，包括：
+
+- Cursor
+- Claude Code
+- Codex
+
+推荐阅读：
+
+- [99 工具/1 Cursor/1 Cursor.md](99%20%E5%B7%A5%E5%85%B7/1%20Cursor/1%20Cursor.md)
+- [99 工具/2 Claude Code/1 Claude Code安装.md](99%20%E5%B7%A5%E5%85%B7/2%20Claude%20Code/1%20Claude%20Code%E5%AE%89%E8%A3%85.md)
+- [99 工具/2 Claude Code/4 Claude Code MCP.md](99%20%E5%B7%A5%E5%85%B7/2%20Claude%20Code/4%20Claude%20Code%20MCP.md)
+- [99 工具/3 Codex/1 Codex.md](99%20%E5%B7%A5%E5%85%B7/3%20Codex/1%20Codex.md)
+
+## 当前文档特点
+
+目前仓库内容有几个明显特点：
+
+- 以中文资料为主，适合快速理解概念和框架
+- 强调知识归档与工程化视角，而不是单纯复制官方文档
+- 部分模块仍在持续扩充中，深度和完整度会逐步提升
+- 一些目录已经形成专题化结构，例如 Agent、RAG、LLM、Claude Code
+
+## 适合谁使用
+
+这个仓库更适合以下场景：
+
+- 想快速建立大模型应用知识地图的人
+- 想梳理 Agent、RAG、Prompt、Context、Harness 等概念关系的人
+- 想查找某个框架、协议或工具的中文整理资料的人
+- 想持续维护个人或团队 AI 知识库结构的人
+
+## 后续可继续补充的方向
+
+后续可以继续完善的方向包括：
+
+- 增加更多模块之间的关联说明
+- 为重点主题补充对比型文档
+- 为开源框架加入实践案例和优缺点分析
+- 为工具模块补充更系统的工作流总结
+- 为 README 增加按“入门路径”组织的阅读顺序
+
+## 参考资料
+
+- NLP教程：https://www.runoob.com/nlp/nlp-tutorial.html
+- Foundations-of-LLMs：https://github.com/ZJU-LLMs/Foundations-of-LLMs
