@@ -18,3 +18,9 @@
 - **数据库连接串** - 含真实凭证的连接字符串
 
 ⚠️ **占位符不属于敏感信息**（如 `sk-xxxx`、`your-token-here`），无需告警。
+
+### Git 提交规则
+
+📋 详见 [.claude/rules/git-workflow.md](.claude/rules/git-workflow.md)
+
+**要点**：提交前必须通过敏感信息检查 hook，未通过不得提交。
