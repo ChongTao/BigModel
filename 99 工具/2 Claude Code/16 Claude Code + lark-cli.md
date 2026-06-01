@@ -9,26 +9,6 @@
 - 辅助机器人、卡片、事件订阅等开发流程
 - 提高脚手架初始化和部署效率
 
-## 1.1 当前安装方式
-
-当前更直接的安装方式是：
-
-```bash
-npx @larksuite/cli@latest install
-```
-
-这条命令用于安装最新版 `lark-cli`。安装完成后，通常还需要执行 `lark-cli config init --new` 初始化配置，再用 `lark-cli auth login --recommend` 完成账号授权，最后用 `lark-cli auth status` 检查登录与权限状态。
-
-## 1.2 基本功能概览
-
-从当前使用方式看，`lark-cli` 更适合被当成 Claude Code 或其他 AI Agent 的“飞书执行层”：
-
-- 读写飞书文档、知识库和云空间文件
-- 发送群消息、搜索消息、做信息分发
-- 读取或写入电子表格、多维表格类数据
-- 处理日历、任务、会议等协作对象
-- 配合飞书画板生成或更新流程图、汇总图等可视化内容
-
 # 2 常见使用场景
 
 1. 初始化飞书应用项目
@@ -330,20 +310,7 @@ lark-cli auth list      # 列出所有已认证用户
 
 # 12 Claude Code + lark-cli 使用建议
 
-## 12.1 配合飞书后的使用效果
-
-单独使用 Claude Code，更偏向“生成内容、整理结构、提炼结论”；配合 `lark-cli` 后，可以进一步把结果直接写回飞书，形成“生成 -> 落库 -> 分发 -> 跟进”的闭环。
-
-常见效果包括：
-
-- 把 Claude Code 生成的周报、纪要、方案直接发布到飞书文档
-- 把结果同步发送到群聊，减少人工复制粘贴
-- 把任务、日程、表格、知识库串起来，形成连续协作
-- 把结构化总结进一步写入飞书画板，用于汇总图、流程图和项目复盘图
-
-对于团队协作，最直接的价值不是“多一个命令行工具”，而是把 AI 输出变成飞书里的正式协作资产，让文档、消息、任务和图表保持一致。
-
-## 12.2 推荐协作流程
+## 12.1 推荐协作流程
 
 1. 先让 Claude Code 生成或整理本地 Markdown（如 `./output/weekly.md`）。
 2. 用 `lark-cli docs +create` 或 `docs +update` 发布到飞书文档。
@@ -352,7 +319,7 @@ lark-cli auth list      # 列出所有已认证用户
 
 这样可以把“内容生成”和“平台写入”解耦：Claude Code 专注内容质量，`lark-cli` 专注稳定落库与分发。
 
-## 12.3 高价值实践建议
+## 12.2 高价值实践建议
 
 - 写操作默认先加 `--dry-run`，确认目标对象、范围和参数无误后再执行。
 - 更新文档优先使用 `append`、`insert_before/after`、`replace_range`，减少 `overwrite` 带来的整文覆盖风险。
@@ -363,7 +330,7 @@ lark-cli auth list      # 列出所有已认证用户
 - 避免在命令中硬编码 token、chat-id、space-id，统一放在环境变量或配置文件中管理。
 - 在流水线中固定 `--format json`，便于后续程序解析和错误重试。
 
-## 12.4 建议的目录与命名
+## 12.3 建议的目录与命名
 
 ```text
 project/
@@ -376,7 +343,7 @@ project/
 - 文档文件名建议带日期，便于回溯。
 - 脚本名体现动作（如 `publish-*`），方便团队复用。
 
-## 12.5 自动发布示例（PowerShell）
+## 12.4 自动发布示例（PowerShell）
 
 ```powershell
 # 1) 由 Claude Code 生成 reports/2026-05-26-weekly.md
@@ -395,7 +362,7 @@ lark-cli im +messages-send `
   --markdown "**周报已发布**`n请查看最新版本。"
 ```
 
-## 12.6 适合交给 Claude Code 的任务
+## 12.5 适合交给 Claude Code 的任务
 
 - 将会议纪要整理成统一模板并输出为 Markdown。
 - 基于任务进展自动生成周报/日报草稿。
@@ -481,8 +448,6 @@ lark-channel-bridge run --chat-whitelist "chat_id1,chat_id2"
 
 这样可以将"**实时交互**"（飞书Bridge）和"**结构化发布**"（lark-cli）分离，各司其职。
 
+## 13.8 许可证
 
-
-
-
-https://mp.weixin.qq.com/s/kGZS9pjaiAAfhqaGEIIiJg
+MIT
