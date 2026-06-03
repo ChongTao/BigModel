@@ -7,19 +7,19 @@
 - GitHub：https://github.com/openclaw/openclaw
 - 许可：MIT
 
-## 系统要求
+## 1 系统要求
 
 安装前至少确认以下条件：
 
-- **Node.js**：推荐 `v24`，兼容 `v22+`
+- **Node.js**：推荐 `v24`，兼容 `v22.19+`
 - **操作系统**：macOS、Linux、Windows
 - **Windows 说明**：能原生安装，但**开发和日常运行更推荐 WSL2**
 - **网络**：首次安装需要联网拉取 CLI 与依赖
 - **模型凭证**：至少准备一个可用模型提供商的 API Key，或提前规划本地模型接入方式
 
-## 推荐安装方式
+## 2 推荐安装方式
 
-### macOS / Linux / WSL2
+### 2.1 官方安装脚本：macOS / Linux / WSL2
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
@@ -31,7 +31,7 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
 ```
 
-### Windows PowerShell
+### 2.2 官方安装脚本：Windows PowerShell
 
 ```powershell
 iwr https://openclaw.ai/install.ps1 -useb | iex
@@ -43,15 +43,41 @@ iwr https://openclaw.ai/install.ps1 -useb | iex
 & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
 ```
 
-### 无 root / 无全局 npm 权限
+### 2.3 包管理器安装
 
-如果机器上不方便做全局安装，可以使用本地前缀安装方式：
+如果你已经自己管理 Node 环境，也可以直接使用包管理器：
 
 ```bash
-curl -fsSL https://openclaw.ai/install-cli.sh | bash
+npm install -g openclaw@latest
+openclaw onboard --install-daemon
 ```
 
-## 首次初始化
+```bash
+pnpm add -g openclaw@latest
+pnpm approve-builds -g
+openclaw onboard --install-daemon
+```
+
+```bash
+bun add -g openclaw@latest
+openclaw onboard --install-daemon
+```
+
+### 2.4 从源码运行
+
+如果你要参与开发，或需要从本地源码启动：
+
+```bash
+git clone https://github.com/openclaw/openclaw.git
+cd openclaw
+pnpm install
+pnpm build
+pnpm ui:build
+pnpm link --global
+openclaw onboard --install-daemon
+```
+
+## 3 首次初始化
 
 安装 CLI 后，建议立刻执行一次引导：
 
@@ -79,15 +105,21 @@ openclaw configure
 openclaw setup
 ```
 
-## 安装后先做的 4 个验证
+## 4 安装后先做的 5 个验证
 
-### 1. 查看 Gateway 状态
+### 4.1 检查 CLI 是否可用
+
+```bash
+openclaw --version
+```
+
+### 4.2 查看 Gateway 状态
 
 ```bash
 openclaw gateway status
 ```
 
-### 2. 打开 Dashboard
+### 4.3 打开 Dashboard
 
 ```bash
 openclaw dashboard
@@ -95,19 +127,19 @@ openclaw dashboard
 
 默认会打开本地 Dashboard，便于检查模型、渠道、技能和运行状态。
 
-### 3. 看一次整体状态
+### 4.4 看一次整体状态
 
 ```bash
 openclaw status --deep
 ```
 
-### 4. 跑一次诊断
+### 4.5 跑一次诊断
 
 ```bash
 openclaw doctor
 ```
 
-## 关键目录与配置文件
+## 5 关键目录与配置文件
 
 OpenClaw 安装后的常见目录如下：
 
@@ -115,23 +147,25 @@ OpenClaw 安装后的常见目录如下：
 | :--- | :--- |
 | `~/.openclaw/openclaw.json` | 主配置文件 |
 | `~/.openclaw/workspace/` | 认知文件系统与长期工作区 |
-| `~/.openclaw/agents/<agentId>/sessions/` | Agent 会话目录 |
 | `~/.openclaw/logs/` | 运行日志 |
 
 其中最重要的是：
 
-- `openclaw.json`：模型、Gateway、渠道等主配置
+- `openclaw.json`：模型、Gateway、渠道、agents 等主配置
 - `workspace/`：记忆、行为说明、任务上下文
 
-## 常用命令
+> 说明：
+> 当前官方配置文档以 `~/.openclaw/openclaw.json` 为主配置文件；如果你在本仓库其它文档里看到更抽象的 `config.yml` 表述，应优先以官方当前配置文件口径为准。
+
+## 6 常用命令
 
 下面只保留安装部署阶段最常用、且值得长期记住的命令。
 
-### Gateway
+### 6.1 Gateway
 
 ```bash
 # 启动默认 Gateway
-openclaw gateway
+openclaw gateway run
 
 # 将 Gateway 安装为后台服务
 openclaw gateway install
@@ -145,7 +179,7 @@ openclaw gateway restart
 openclaw gateway status
 ```
 
-### 渠道管理
+### 6.2 渠道管理
 
 ```bash
 # 查看所有渠道（含未启用）
@@ -160,11 +194,11 @@ openclaw channels add telegram
 # 移除渠道
 openclaw channels remove telegram
 
-# 查看渠道日志
-openclaw channels logs --channel all
+# 实时探测渠道状态
+openclaw channels status --probe
 ```
 
-### 技能管理
+### 6.3 技能管理
 
 ```bash
 # 搜索技能
@@ -182,11 +216,11 @@ openclaw skills info github
 # 更新技能
 openclaw skills update
 
-# 检查技能完整性
+# 检查技能安装状态
 openclaw skills check
 ```
 
-### 配置管理
+### 6.4 配置管理
 
 ```bash
 # 查看配置文件位置
@@ -202,31 +236,9 @@ openclaw config get gateway.port
 openclaw config set gateway.port 18789
 ```
 
-### Memory 与状态排查
+## 7 部署建议
 
-```bash
-# 查看记忆系统状态
-openclaw memory status
-
-# 强制重建索引
-openclaw memory index --force
-
-# 搜索记忆
-openclaw memory search "deployment"
-
-# 将当前上下文提升为长期记忆
-openclaw memory promote --apply
-
-# 快速健康检查
-openclaw health --verbose
-
-# 安全审计
-openclaw security audit
-```
-
-## 部署建议
-
-### 个人机器
+### 7.1 个人机器
 
 个人使用优先选择：
 
@@ -236,14 +248,14 @@ openclaw security audit
 
 这条路径最适合长期常驻的自托管 Agent。
 
-### Windows
+### 7.2 Windows
 
 Windows 可以直接安装，但有两点要注意：
 
 1. 如果要做插件开发、脚本编排或依赖更多 Unix 工具，优先使用 **WSL2**
 2. 如果是原生 Windows 运行，优先用 PowerShell 安装脚本，不要混用多套 Node/npm 环境
 
-### 云服务器
+### 7.3 云服务器
 
 如果要部署到云上，建议选择一台干净的 Linux 主机，按以下顺序执行：
 
@@ -251,13 +263,13 @@ Windows 可以直接安装，但有两点要注意：
 2. 运行官方安装脚本
 3. 执行 `openclaw onboard --install-daemon`
 4. 用反向代理统一暴露入口
-5. 上线前执行 `openclaw doctor` 与 `openclaw security audit`
+5. 上线前执行 `openclaw doctor` 与 `openclaw gateway status`
 
 不建议直接采用来源不明的“一键镜像”或第三方打包脚本。
 
 默认情况下优先保持 Gateway 仅监听本机地址；如果必须暴露到局域网、Tailscale 或公网，至少同步配置认证令牌、反向代理和最小化访问面。
 
-### Docker
+### 7.4 Docker
 
 如果你的目标是：
 
@@ -267,7 +279,7 @@ Windows 可以直接安装，但有两点要注意：
 
 可以再评估 Docker 方案；但对个人机器来说，官方安装脚本通常比容器方式更直接。
 
-## 一个最小可用流程
+## 8 一个最小可用流程
 
 ```bash
 # 1. 安装
@@ -286,7 +298,7 @@ openclaw dashboard
 openclaw doctor
 ```
 
-## 参考
+## 9 参考
 
 - https://docs.openclaw.ai/start/getting-started
 - https://docs.openclaw.ai/zh-CN/platforms/windows
