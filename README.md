@@ -28,7 +28,7 @@
 推荐阅读：
 
 - [1 Agent/1 Agent 概述.md](1%20Agent/1%20Agent%20%E6%A6%82%E8%BF%B0.md)
-- [1 Agent/2 记忆/1 记忆概述.md](1%20Agent/2%20%E8%AE%B0%E5%BF%86/1%20%E8%AE%B0%E5%BF%86%E6%A6%82%E8%BF%B0.md)
+- [1 Agent/1 记忆/1 记忆概述.md](1%20Agent/1%20%E8%AE%B0%E5%BF%86/1%20%E8%AE%B0%E5%BF%86%E6%A6%82%E8%BF%B0.md)
 - [1 Agent/3 Skill/1 Agent Skill.md](1%20Agent/3%20Skill/1%20Agent%20Skill.md)
 - [1 Agent/10 Agent框架/1 Agent框架.md](1%20Agent/10%20Agent%E6%A1%86%E6%9E%B6/1%20Agent%E6%A1%86%E6%9E%B6.md)
 
