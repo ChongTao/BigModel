@@ -211,7 +211,7 @@ Agent 的能力强，但工程难度通常也更高。常见问题包括：
 
 - 记忆机制：[1 Agent/1 记忆/1 记忆概述.md](./1%20记忆/1%20记忆概述.md)
 - Skill 能力封装：[1 Agent/2 Skill/1 Skill概述.md](./2%20Skill/1%20Skill%E6%A6%82%E8%BF%B0.md)
-- Agent 框架：[1 Agent/10 Agent框架/1 Agent框架.md](./10%20Agent框架/1%20Agent框架.md)
+- Agent 互操作协议：[1 Agent/10 Agent框架与协议/1 Agent互操作协议/1 A2A协议.md](./10%20Agent框架与协议/1%20Agent互操作协议/1%20A2A协议.md)
 
 ## 1.9 参考资料
 
