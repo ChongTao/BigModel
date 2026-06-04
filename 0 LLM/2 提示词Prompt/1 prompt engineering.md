@@ -235,13 +235,13 @@ Tool Use、ReAct 的重点是“推理 + 行动 + 观察”的执行闭环，不
 
 Prompt 可以描述这种范式，但真正落地通常还需要工具调用机制。
 
-详见 [../3 推理模型/1 ReAct.md](../3%20%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B/1%20ReAct.md)。
+详见 [../3 推理模型/5 ReAct.md](../3%20%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B/5%20ReAct.md)。
 
 ## 4.3 Reflection / Reflexion
 
 反思模式强调“生成后评估并修正”，本质上是推理/工作流范式，而不只是 Prompt 文本技巧。
 
-详见 [../3 推理模型/2 Reflexion.md](../3%20%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B/2%20Reflexion.md)。
+详见 [../3 推理模型/6 Reflexion.md](../3%20%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B/6%20Reflexion.md)。
 
 # 五 常见 Prompt 结构模板
 
