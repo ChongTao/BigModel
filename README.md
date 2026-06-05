@@ -129,10 +129,16 @@
 
 目录：`8 开源软件/`
 
-这一部分用于记录年度维度的开源软件和项目资料，目前已有 2026 年相关内容。
+这一部分用于记录开源软件、平台级项目与年度维度的软件资料，包括：
+
+- OpenClaw
+- Hermes
+- 年度开源软件整理
 
 推荐阅读：
 
+- [8 开源软件/1 OpenClaw/2 项目介绍与架构概览.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/1%20OpenClaw/2%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88.md)
+- [8 开源软件/2 Hermes/2 项目介绍与原理概览.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2%20Hermes/2%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%8E%9F%E7%90%86%E6%A6%82%E8%A7%88.md)
 - [8 开源软件/2026/开源软件汇总.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2026/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E6%B1%87%E6%80%BB.md)
 - [8 开源软件/2026/1 nndeploy/1 nndeploy.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2026/1%20nndeploy/1%20nndeploy.md)
 - [8 开源软件/2026/2 GPT-Load/1 gpt-load.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2026/2%20GPT-Load/1%20gpt-load.md)
@@ -157,7 +163,6 @@
 - 部署工具
 - 大模型相关技术
 - 推理框架
-- OpenClaw
 
 推荐阅读：
 
