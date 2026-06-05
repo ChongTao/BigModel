@@ -14,6 +14,26 @@
 
 ## 知识地图
 
+### 0. LLM
+
+目录：`0 LLM/`
+
+这一部分是当前仓库的核心基础模块之一，覆盖：
+
+- 提示工程
+- 上下文工程
+- Harness
+- 大模型基础原理
+
+其中，`Harness` 模块当前补充了更完整的介绍文档，并明确说明了 `Prompt -> Context -> Harness` 的递进关系。
+
+推荐阅读：
+
+- [0 LLM/1 提示工程/1 prompt engineering.md](0%20LLM/1%20%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B/1%20prompt%20engineering.md)
+- [0 LLM/2 上下文工程/1 context Engineering.md](0%20LLM/2%20%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B/1%20context%20Engineering.md)
+- [0 LLM/3 Harness/2 Harness介绍.md](0%20LLM/3%20Harness/2%20Harness%E4%BB%8B%E7%BB%8D.md)
+- [0 LLM/10 大模型原理/1 Transformer.md](0%20LLM/10%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86/1%20Transformer.md)
+
 ### 1. Agent
 
 目录：`1 Agent/`
@@ -23,6 +43,7 @@
 - Agent 基础认知
 - 记忆机制
 - Skill 能力封装
+- 工具调用与接入
 - Agent 框架与协议
 
 推荐阅读：
@@ -30,7 +51,9 @@
 - [1 Agent/1 Agent 概述.md](1%20Agent/1%20Agent%20%E6%A6%82%E8%BF%B0.md)
 - [1 Agent/1 记忆/1 记忆概述.md](1%20Agent/1%20%E8%AE%B0%E5%BF%86/1%20%E8%AE%B0%E5%BF%86%E6%A6%82%E8%BF%B0.md)
 - [1 Agent/2 Skill/1 Skill概述.md](1%20Agent/2%20Skill/1%20Skill%E6%A6%82%E8%BF%B0.md)
+- [1 Agent/10 Agent框架与协议/3 工具调用与接入/1 Function Calling.md](1%20Agent/10%20Agent%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%8D%8F%E8%AE%AE/3%20%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8%E4%B8%8E%E6%8E%A5%E5%85%A5/1%20Function%20Calling.md)
 - [1 Agent/10 Agent框架与协议/1 Agent互操作协议/1 A2A协议.md](1%20Agent/10%20Agent%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%8D%8F%E8%AE%AE/1%20Agent%E4%BA%92%E6%93%8D%E4%BD%9C%E5%8D%8F%E8%AE%AE/1%20A2A%E5%8D%8F%E8%AE%AE.md)
+- [1 Agent/10 Agent框架与协议/1 Agent互操作协议/3 MCP协议.md](1%20Agent/10%20Agent%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%8D%8F%E8%AE%AE/1%20Agent%E4%BA%92%E6%93%8D%E4%BD%9C%E5%8D%8F%E8%AE%AE/3%20MCP%E5%8D%8F%E8%AE%AE.md)
 
 ### 2. RAG
 
@@ -49,7 +72,7 @@
 - [2 RAG/1 RAG概述.md](2%20RAG/1%20RAG%E6%A6%82%E8%BF%B0.md)
 - [2 RAG/2 RAG架构.md](2%20RAG/2%20RAG%E6%9E%B6%E6%9E%84.md)
 - [2 RAG/3 向量检索.md](2%20RAG/3%20%E5%90%91%E9%87%8F%E6%A3%80%E7%B4%A2.md)
-- [2 RAG/10 Agentic RAG.md](2%20RAG/10%20Agentic%20RAG.md)
+- [2 RAG/2 RAG架构.md](2%20RAG/2%20RAG%E6%9E%B6%E6%9E%84.md)
 
 ### 3. NLP
 
@@ -66,29 +89,6 @@
 - [3 NLP/1 NLP简介.md](3%20NLP/1%20NLP%E7%AE%80%E4%BB%8B.md)
 - [3 NLP/2 query处理相关概念.md](3%20NLP/2%20query%E5%A4%84%E7%90%86%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5.md)
 - [3 NLP/3 召回算法.md](3%20NLP/3%20%E5%8F%AC%E5%9B%9E%E7%AE%97%E6%B3%95.md)
-
-### 4. LLM
-
-目录：`4 LLM/`
-
-这一部分是当前仓库的核心模块之一，覆盖：
-
-- 提示工程
-- 上下文工程
-- Function Calling
-- MCP
-- Harness
-- 大模型基础原理
-
-其中，`Harness` 模块当前补充了更完整的介绍文档，并明确说明了 `Prompt -> Context -> Harness` 的递进关系。
-
-推荐阅读：
-
-- [4 LLM/1 提示工程/1 prompt engineering.md](4%20LLM/1%20%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B/1%20prompt%20engineering.md)
-- [4 LLM/2 上下文工程/1 context Engineering.md](4%20LLM/2%20%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B/1%20context%20Engineering.md)
-- [4 LLM/3 MCP.md](4%20LLM/3%20MCP.md)
-- [4 LLM/3 Harness/2 Harness介绍.md](4%20LLM/3%20Harness/2%20Harness%E4%BB%8B%E7%BB%8D.md)
-- [4 LLM/10 大模型原理/1 Transformer.md](4%20LLM/10%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86/1%20Transformer.md)
 
 ### 5. 开源框架
 
@@ -112,7 +112,7 @@
 - [5 开源框架/2 LangChain/1 LangGraph/1 LangGraph介绍.md](5%20%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/2%20LangChain/1%20LangGraph/1%20LangGraph%E4%BB%8B%E7%BB%8D.md)
 - [5 开源框架/6 AutoGen.md](5%20%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/6%20AutoGen.md)
 
-### 6. 开源软件
+### 8. 开源软件
 
 目录：`8 开源软件/`
 
@@ -124,7 +124,7 @@
 - [8 开源软件/2026/1 nndeploy/1 nndeploy.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2026/1%20nndeploy/1%20nndeploy.md)
 - [8 开源软件/2026/2 GPT-Load/1 gpt-load.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2026/2%20GPT-Load/1%20gpt-load.md)
 
-### 7. 论文与博客
+### 9. 论文与博客
 
 目录：`9 论文&博客/`
 
@@ -135,7 +135,7 @@
 - [9 论文&博客/1 Memory in the Age of AI Agents A Survey.md](9%20%E8%AE%BA%E6%96%87%26%E5%8D%9A%E5%AE%A2/1%20Memory%20in%20the%20Age%20of%20AI%20Agents%20A%20Survey.md)
 - [9 论文&博客/2 12 RAG Pain Points and Proposed Solutions.md](9%20%E8%AE%BA%E6%96%87%26%E5%8D%9A%E5%AE%A2/2%2012%20RAG%20Pain%20Points%20and%20Proposed%20Solutions.md)
 
-### 8. 其它
+### 10. 其它
 
 目录：`10 其它/`
 
@@ -152,7 +152,7 @@
 - [10 其它/2 大模型相关技术/1 OneApi/1 OneApi.md](10%20%E5%85%B6%E5%AE%83/2%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF/1%20OneApi/1%20OneApi.md)
 - [10 其它/3 推理框架/1 推理框架介绍.md](10%20%E5%85%B6%E5%AE%83/3%20%E6%8E%A8%E7%90%86%E6%A1%86%E6%9E%B6/1%20%E6%8E%A8%E7%90%86%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D.md)
 
-### 9. 工具
+### 99. 工具
 
 目录：`99 工具/`
 
