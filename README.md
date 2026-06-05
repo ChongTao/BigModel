@@ -22,16 +22,12 @@
 
 - 提示工程
 - 上下文工程
-- Harness
 - 大模型基础原理
-
-其中，`Harness` 模块当前补充了更完整的介绍文档，并明确说明了 `Prompt -> Context -> Harness` 的递进关系。
 
 推荐阅读：
 
 - [0 LLM/1 提示工程/1 prompt engineering.md](0%20LLM/1%20%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B/1%20prompt%20engineering.md)
 - [0 LLM/2 上下文工程/1 context Engineering.md](0%20LLM/2%20%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B/1%20context%20Engineering.md)
-- [0 LLM/3 Harness/2 Harness介绍.md](0%20LLM/3%20Harness/2%20Harness%E4%BB%8B%E7%BB%8D.md)
 - [0 LLM/10 大模型原理/1 Transformer.md](0%20LLM/10%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86/1%20Transformer.md)
 
 ### 1. Agent
@@ -88,6 +84,23 @@
 
 - [3 NLP/1 NLP简介.md](3%20NLP/1%20NLP%E7%AE%80%E4%BB%8B.md)
 - [3 NLP/2 query处理相关概念.md](3%20NLP/2%20query%E5%A4%84%E7%90%86%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5.md)
+
+### 4. Harness
+
+目录：`4 Harness/`
+
+这一部分聚焦围绕模型运行的控制与执行层，包括：
+
+- 上下文装配
+- 工具执行与权限控制
+- 长任务状态管理
+- 验证、护栏与恢复机制
+
+`Harness` 不属于 LLM 本体能力，也不等于 Agent 本身。更准确地说，它是围绕模型与 Agent 运行的一整套工程化环境。
+
+推荐阅读：
+
+- [4 Harness/1 Harness概述.md](4%20Harness/1%20Harness%E6%A6%82%E8%BF%B0.md)
 - [3 NLP/3 召回算法.md](3%20NLP/3%20%E5%8F%AC%E5%9B%9E%E7%AE%97%E6%B3%95.md)
 
 ### 5. 开源框架
