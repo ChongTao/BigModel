@@ -114,7 +114,8 @@
 - LangGraph
 - OpenClaw
 - Hermes
-- 年度开源软件整理
+- nndeploy
+- GPT-Load
 
 推荐阅读：
 
@@ -123,7 +124,7 @@
 - [5 开源生态/2 LangChain/1 LangGraph/1 LangGraph介绍.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/2%20LangChain/1%20LangGraph/1%20LangGraph%E4%BB%8B%E7%BB%8D.md)
 - [5 开源生态/3 OpenClaw/2 项目介绍与架构概览.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/3%20OpenClaw/2%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88.md)
 - [5 开源生态/4 Hermes/2 项目介绍与原理概览.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/4%20Hermes/2%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%8E%9F%E7%90%86%E6%A6%82%E8%A7%88.md)
-- [5 开源生态/2026/开源软件汇总.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/2026/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E6%B1%87%E6%80%BB.md)
+- [5 开源生态/5 nndeploy/1 nndeploy.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/5%20nndeploy/1%20nndeploy.md)
 
 ### 9. 论文与博客
 
