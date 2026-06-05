@@ -118,6 +118,7 @@
 - GPT-Load
 - Ollama
 - OneAPI
+- 推理框架
 
 推荐阅读：
 
@@ -129,6 +130,7 @@
 - [5 开源生态/5 nndeploy/1 nndeploy.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/5%20nndeploy/1%20nndeploy.md)
 - [5 开源生态/7 Ollama/1 Ollama总结.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/7%20Ollama/1%20Ollama%E6%80%BB%E7%BB%93.md)
 - [5 开源生态/8 OneAPI/1 OneApi.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/8%20OneAPI/1%20OneApi.md)
+- [5 开源生态/9 推理框架/1 推理框架介绍.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/9%20%E6%8E%A8%E7%90%86%E6%A1%86%E6%9E%B6/1%20%E6%8E%A8%E7%90%86%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D.md)
 
 ### 9. 论文与博客
 
@@ -140,16 +142,6 @@
 
 - [9 论文&博客/1 Memory in the Age of AI Agents A Survey.md](9%20%E8%AE%BA%E6%96%87%26%E5%8D%9A%E5%AE%A2/1%20Memory%20in%20the%20Age%20of%20AI%20Agents%20A%20Survey.md)
 - [9 论文&博客/2 12 RAG Pain Points and Proposed Solutions.md](9%20%E8%AE%BA%E6%96%87%26%E5%8D%9A%E5%AE%A2/2%2012%20RAG%20Pain%20Points%20and%20Proposed%20Solutions.md)
-
-### 10. 其它
-
-目录：`10 其它/`
-
-用于承接暂时不适合放到主模块中的内容，当前主要保留推理框架相关资料。
-
-推荐阅读：
-
-- [10 其它/3 推理框架/1 推理框架介绍.md](10%20%E5%85%B6%E5%AE%83/3%20%E6%8E%A8%E7%90%86%E6%A1%86%E6%9E%B6/1%20%E6%8E%A8%E7%90%86%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D.md)
 
 ### 99. 工具
 

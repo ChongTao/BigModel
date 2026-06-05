@@ -4,7 +4,7 @@
 This repository is a knowledge base organized by topic, not an application codebase. Content is mainly Markdown files under numbered directories:
 
 - `0 LLM`, `1 Agent`, `2 RAG`, `3 NLP`, `5 开源生态`
-- `9 论文&博客`, `10 其它`, `99 工具`
+- `9 论文&博客`, `99 工具`
 
 Root files:
 
