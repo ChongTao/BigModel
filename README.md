@@ -103,45 +103,27 @@
 - [4 Harness/1 Harness概述.md](4%20Harness/1%20Harness%E6%A6%82%E8%BF%B0.md)
 - [3 NLP/3 召回算法.md](3%20NLP/3%20%E5%8F%AC%E5%9B%9E%E7%AE%97%E6%B3%95.md)
 
-### 5. 开源框架
+### 5. 开源生态
 
-目录：`5 开源框架/`
+目录：`5 开源生态/`
 
-这一部分主要汇总常见 AI 应用框架与编排平台，包括：
+这一部分汇总当前已整理的 AI 开源框架、平台型项目与年度软件整理，包括：
 
 - Dify
 - LangChain
 - LangGraph
-- AutoGPT
-- CrewAI
-- AutoGen
-- Coze
-- n8n
-
-推荐阅读：
-
-- [5 开源框架/1 Dify/1 dify.md](5%20%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/1%20Dify/1%20dify.md)
-- [5 开源框架/2 LangChain/1 LangChain.md](5%20%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/2%20LangChain/1%20LangChain.md)
-- [5 开源框架/2 LangChain/1 LangGraph/1 LangGraph介绍.md](5%20%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/2%20LangChain/1%20LangGraph/1%20LangGraph%E4%BB%8B%E7%BB%8D.md)
-- [5 开源框架/6 AutoGen.md](5%20%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/6%20AutoGen.md)
-
-### 8. 开源软件
-
-目录：`8 开源软件/`
-
-这一部分用于记录开源软件、平台级项目与年度维度的软件资料，包括：
-
 - OpenClaw
 - Hermes
 - 年度开源软件整理
 
 推荐阅读：
 
-- [8 开源软件/1 OpenClaw/2 项目介绍与架构概览.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/1%20OpenClaw/2%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88.md)
-- [8 开源软件/2 Hermes/2 项目介绍与原理概览.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2%20Hermes/2%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%8E%9F%E7%90%86%E6%A6%82%E8%A7%88.md)
-- [8 开源软件/2026/开源软件汇总.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2026/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E6%B1%87%E6%80%BB.md)
-- [8 开源软件/2026/1 nndeploy/1 nndeploy.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2026/1%20nndeploy/1%20nndeploy.md)
-- [8 开源软件/2026/2 GPT-Load/1 gpt-load.md](8%20%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/2026/2%20GPT-Load/1%20gpt-load.md)
+- [5 开源生态/1 Dify/1 dify.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/1%20Dify/1%20dify.md)
+- [5 开源生态/2 LangChain/1 LangChain.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/2%20LangChain/1%20LangChain.md)
+- [5 开源生态/2 LangChain/1 LangGraph/1 LangGraph介绍.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/2%20LangChain/1%20LangGraph/1%20LangGraph%E4%BB%8B%E7%BB%8D.md)
+- [5 开源生态/3 OpenClaw/2 项目介绍与架构概览.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/3%20OpenClaw/2%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88.md)
+- [5 开源生态/4 Hermes/2 项目介绍与原理概览.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/4%20Hermes/2%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%8E%9F%E7%90%86%E6%A6%82%E8%A7%88.md)
+- [5 开源生态/2026/开源软件汇总.md](5%20%E5%BC%80%E6%BA%90%E7%94%9F%E6%80%81/2026/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E6%B1%87%E6%80%BB.md)
 
 ### 9. 论文与博客
 
