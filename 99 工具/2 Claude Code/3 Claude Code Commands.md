@@ -1,4 +1,4 @@
-# 1 Claude Code Commands
+# Claude Code Commands
 
 在 [Anthropic](https://www.anthropic.com?utm_source=chatgpt.com) 的 [Claude Code](https://docs.anthropic.com/en/docs/claude-code?utm_source=chatgpt.com) 中，Commands（命令）是一套“可复用 Prompt + 自动化工作流”的机制。Claude Code的命令通常分为两类：
 
@@ -9,9 +9,9 @@
 
 其本质是：命令名称 + Prompt模板 + 上下文规则 + 可选参数
 
-## 1.1 自定义命令开发
+## 1 自定义命令开发
 
-### 1.1.1 命令文件结构
+### 1.1 命令文件结构
 
 一个完整的Command Prompt命令如下：
 
@@ -28,7 +28,7 @@ Target:
 $ARGUMENTS
 ```
 
-### 1.1.2 命令位置及作用域
+### 1.2 命令位置及作用域
 
 | 作用域     | 存放位置              | 生效范围 | 适用场景           |
 | :--------- | :-------------------- | :------- | :----------------- |
@@ -37,7 +37,7 @@ $ARGUMENTS
 
 > 相同命令优先级是：项目级（.claude/commands/）> 用户级（ ~/.claude/commands/） > 内置命令。
 
-### 1.1.3 示例
+### 1.3 示例
 
 ```sh
 .claude/commands/golang-review.md
@@ -60,15 +60,7 @@ $ARGUMENTS
 
 然后执行 `/project:golang-review user_service.go`，Claude 会自动加载命令模板，将 `$ARGUMENTS` 替换为 `user_service.go`，读取目标文件并执行分析。
 
-## 1.2 Commands与CLAUDE.md的关系
-
-| 文件            | 作用           |
-| --------------- | -------------- |
-| `CLAUDE.md`     | 全局项目规范   |
-| `commands/*.md` | 某个具体工作流 |
-| `settings.json` | 模型/权限配置  |
-
-## 1.3 Claude Command 资源
+## 2 Claude Command 资源
 
 - Claude Command Suite： https://github.com/qdhenry/Claude-Command-Suite
 - Awesome Claude Code：https://github.com/hesreallyhim/awesome-claude-code
