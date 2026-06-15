@@ -6,7 +6,7 @@
 - IDE 扩展：在 VS Code 兼容编辑器里侧边协作
 - App：桌面端集中管理线程、项目和自动化
 
-如果只看定位，Codex 更接近“可读代码、可改文件、可执行命令、可调用外部工具的工程代理”，而不是普通聊天工具。
+其目标不是帮你补全代码，而是直接**参与并完成整个开发任务**——写代码、修 Bug、跑测试、提 Pull Request。
 
 ## 1.1 适合什么场景
 
@@ -91,17 +91,10 @@ AGENTS.md
 3. 再看 `Skills / Plugins / MCP`
 4. 需要复杂任务时再看 `Subagents`
 
-## 1.5 延伸阅读
+# 2 Codex系统机构
 
-- [2 Codex常见操作.md](./2%20Codex%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C.md)
-- [4 Codex MCP.md](./4%20Codex%20MCP.md)
-- [5 Codex AGENTS.md](./5%20Codex%20AGENTS.md)
-- [6 Codex Skill.md](./6%20Codex%20Skill.md)
-- [7 Codex Plugin.md](./7%20Codex%20Plugin.md)
-- [8 Codex Subagents.md](./8%20Codex%20Subagents.md)
-- [11 Codex项目结构.md](./11%20Codex%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.md)
-- [12 Codex 上下文管理.md](./12%20Codex%20%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86.md)
-- [13 Codex 工作原理.md](./13%20Codex%20%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.md)
-- [14 Codex IDE与App.md](./14%20Codex%20IDE%E4%B8%8EApp.md)
-- [15 Codex 日常使用.md](./15%20Codex%20%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8.md)
-- [16 Codex 配置与认证.md](./16%20Codex%20%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A4%E8%AF%81.md)
+![](https://www.runoob.com/wp-content/uploads/2026/03/codex-architecture.svg)
+
+# 3 参考
+
+- https://www.runoob.com/codex/codex-intro.html

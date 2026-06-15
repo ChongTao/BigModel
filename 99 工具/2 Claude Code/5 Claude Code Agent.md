@@ -370,4 +370,4 @@ You are a database analyst with read-only access. Execute SELECT queries only.
 
 - https://docs.anthropic.com/zh-CN/docs/claude-code/sub-agents
 - https://www.runoob.com/claude-code/claude-code-subagent.html
-- 子Agent不需要填写，参考不同来源的Agent使用 https://waytoagi.feishu.cn/wiki/Gx3ywoTZIihfiWkD1hlcLq5Vnqb
+- https://waytoagi.feishu.cn/wiki/Gx3ywoTZIihfiWkD1hlcLq5Vnqb

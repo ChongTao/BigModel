@@ -1,4 +1,4 @@
-# 3 Codex Commands
+# 1 Codex Commands
 
 Codex 有两类常见命令入口：
 

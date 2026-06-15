@@ -401,7 +401,10 @@ lark-cli im +messages-send `
 lark-channel-bridge run
 ```
 
+> 长期后台运行 tmux attach -t lark-bridge，退出用 Ctrl+B D
+
 ### 后台守护进程
+
 支持 macOS、Linux 和 Windows，自动恢复崩溃：
 ```bash
 # 启动守护进程

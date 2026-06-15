@@ -4,8 +4,6 @@ Claude Code 是 Anthropic 推出的、面向开发者的 **AI 编程助手形态
 
 它可以读取你的代码库、编辑文件、运行命令，并与你的开发工具集成。可在终端、IDE、桌面应用和浏览器中使用。
 
-
-
 # 2 安装Claude Code
 
 ## 2.1 npm方式安装
@@ -103,7 +101,7 @@ curl -fsSL https://claude.ai/install.sh | bash
 - **CLAUDE.md**：每次对话加载的持久上下文，约定成俗的规则。
 - **Skill**：可以使用的说明、知识和工作流，如可重用内容、参考文档、可重复的任务。
 - **Subagent**：返回摘要结果的隔离执行上下文，如需要上下文隔离、并行任务执行时。
-- **MCP**：连接到外部服务，对外部数据进行操作，如查询数据库等
+- **MCP**：连接到外部服务，对外部数据进行操作，如查询数据库等。
 - **Hook**：由事件触发的脚本、HTTP 请求、提示或 subagent。
 - **Plugins**：将 skills、hooks、subagents 和 MCP servers 捆绑到单个可安装单元中。
 

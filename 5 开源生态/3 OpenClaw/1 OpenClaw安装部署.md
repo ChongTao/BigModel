@@ -177,6 +177,9 @@ openclaw gateway restart
 
 # 查看状态
 openclaw gateway status
+
+# 升级openclaw
+openclaw update
 ```
 
 ### 6.2 渠道管理

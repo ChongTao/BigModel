@@ -6,6 +6,49 @@
 
 > 让 Codex 每次进入这个项目时，默认就知道团队规则、工程约束和输出习惯。
 
+
+
+## AGENTS.md
+
+AGENTS.md 是项目级的 Agent 指令文件，定义 Codex 在该项目中的行为规范。
+
+### 文件发现顺序
+
+1. 读取全局 `~/.codex/AGENTS.md`
+2. 从项目根目录向下搜索每个目录
+3. 更近目录的规则覆盖更远的
+
+```markdown
+# 项目开发规范
+
+## 技术栈
+- 前端：React + TypeScript
+- 后端：Python FastAPI
+- 数据库：PostgreSQL
+
+## 代码规范
+- 使用 4 空格缩进
+- 每行最多 100 字符
+- 所有函数必须有类型注解
+
+## 测试要求
+- 新功能必须包含测试
+- 使用 pytest 运行测试
+
+## Git 提交
+- 使用 Conventional Commits 格式
+- 提交信息描述"为什么"
+
+## Review guidelines
+- Don't log PII
+- Verify authentication middleware
+- Check for SQL injection
+```
+
+
+
+
+
 ## 5.1 AGENTS.md 的作用
 
 典型用途包括：

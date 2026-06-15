@@ -1,6 +1,6 @@
 # 1 Understand-Anything
 
-Understand-Anything 是一个面向 AI 编码工具的项目理解插件，可以把代码库、知识库或文档转换成可搜索、可探索、可对话的交互式知识图谱。它支持 Claude Code、Codex、Cursor、Copilot、Gemini CLI 等多平台，核心目标不是单纯“画图”，而是帮助你更快理解系统结构、业务流程和变更影响。 
+Understand-Anything 是一个面向 AI 编码工具的项目理解插件，可以把代码库、知识库或文档转换成可搜索、可探索、可对话的交互式知识图谱。它支持 Claude Code、Codex、Cursor、Copilot、Gemini CLI 等多平台，核心目标不是单纯“画图”，而是帮助你更快理解系统结构、业务流程和变更影响（**不建议使用，太耗Token**）。 
 
 ## 1.1 核心能力
 
