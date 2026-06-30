@@ -450,7 +450,3 @@ lark-channel-bridge run --chat-whitelist "chat_id1,chat_id2"
 5. 必要时用 `task`/`calendar` 跟踪后续动作
 
 这样可以将"**实时交互**"（飞书Bridge）和"**结构化发布**"（lark-cli）分离，各司其职。
-
-## 13.8 许可证
-
-MIT

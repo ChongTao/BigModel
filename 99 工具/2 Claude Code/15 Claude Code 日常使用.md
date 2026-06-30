@@ -1,6 +1,6 @@
-# Claude Code 日常使用
+# Claude Code日常使用
 
-# 1 常用斜杠命令
+# 1 常用命令
 
 ## 1.1 会话管理
 
@@ -28,11 +28,13 @@
 | `/plugin list` | 列出已安装的插件 |
 | `/reload-plugins` | 热更新插件，无需重启会话 |
 
+安全护栏类插件推荐优先安装 `security-guidance`，详见 `5.2`。
+
 ## 1.4 内置 Skills
 
 | 命令 | 作用 |
 | --- | --- |
-| `/simplify` | 审查代码，找重用、质量和效率问题并修复。详见 [代码检查工具](./14%20Claude%20Code%20代码检查工具.md) |
+| `/simplify` | 审查代码，找重用、质量和效率问题并修复 |
 | `/debug` | 调试错误，分析根因并提供修复方案 |
 | `/batch` | 批量处理多个任务 |
 | `/loop` | 循环执行任务直到满足条件 |
@@ -107,46 +109,83 @@
 Ctrl+B
 ```
 
----
 
-# 3 快捷键
 
-| 快捷键 | 作用 |
-| --- | --- |
-| `Ctrl+C` | 中断当前操作 |
-| `Ctrl+B` | 将当前任务放到后台运行 |
-| `Shift+Enter` | 换行输入（需先通过 `/terminal-setup` 配置） |
-| `↑ / ↓` | 浏览历史输入 |
+# 5 开发命令选择
 
----
+## 5.1 代码review
 
-# 4 启动参数
+### 5.1.1 /dev:code-review
 
-```sh
-# 使用指定模型启动
-claude --model claude-opus-4-6
+- **来源：** https://github.com/qdhenry/Claude-Command-Suite/blob/main/.claude/commands/dev/
+- **定位：** 通用代码质量审查，适合所有语言和项目，审查**整个项目**。
+- **触发方式**： `/dev:code-review`
+- **审查维度：**仓库分析、代码质量、安全、性能、架构设计、测试覆盖、文档等。
 
-# 以指定子代理身份启动整个会话
-claude --agent code-reviewer
+### 5.1.2 /review
 
-# 加载插件（开发测试）
-claude --plugin-dir ./my-plugin
+- **来源：** Claude Code 平台内置，描述为 "Review a pull request"。
+- **定位：** 针对 PR/分支 diff 的审查，聚焦在变更集。
+- **触发方式：** /review（自动读取当前分支 vs 主分支的 diff）。
+- **行为：**  自动拉取变更，审查本次PR引入的变更。
 
-# 禁用自动记忆（临时）
-CLAUDE_CODE_DISABLE_AUTO_MEMORY=1 claude
+### 5.1.3 pr-review-toolkit:review-pr （重要）
 
-# 在指定目录启动
-claude /path/to/project
-```
+- **来源：** Anthropic官网插件。
+- **定位：** 本地 diff 的多维专项审查工具，PR 提交前的最后一道质量门控。
+- **触发方式：**/pr-review-toolkit:review-pr [aspects] 
+- **本质：** 一个 orchestrator 命令 + 6 个独立专项 agent 的组合体，每个 agent 各司其职。
+- **审查维度：** 通用代码质量、静默错误猎手、测试覆盖分析、注释准确性、类型设计质量、代码简化
 
----
+### 5.1.4 /grill-me
 
-# 5 上下文管理技巧
+- **来源：** 社区 Skill，常见来源为 `mattpocock/skills` 中的 `grill-me`。
+- **定位：** 面向当前改动或当前方案的对抗式 review，适合在提交前进一步挑问题。
+- **触发方式：** `/grill-me`
+- **使用方式：** 直接执行 `/grill-me`
 
-| 场景 | 建议操作 |
-| --- | --- |
-| 对话已很长，Claude 开始重复或遗忘 | 立即 `/compact`，不要继续在同一会话中纠正 |
-| 任务已完成，准备切换新任务 | `/clear` 彻底清空 |
-| 读取大文件或长日志 | 要求只输出关键部分，如"只显示 ERROR 级别的日志" |
-| 反复用到同一提示词 | 保存为 `.claude/commands/` 自定义命令 |
-| Claude 两次记错同一规范 | 让 Claude 写入 CLAUDE.md 固化 |
+## 5.2 安全审查
+
+### 5.2.1 security-guidance（自动）
+
+- **来源：** Anthropic 官方插件。
+- **定位：** 开发过程中的自动安全护栏，用于持续检查当前改动中的常见安全问题。
+- **触发方式：** 安装并执行 `/reload-plugins` 后自动运行，无需手动触发命令。
+- **使用方式：** `/plugin install security-guidance@claude-plugins-official`；如市场未配置，先执行 `/plugin marketplace add anthropics/claude-plugins-official`。
+
+### 5.2.2 /security-review
+
+- **来源：** Claude Code 安全审查 Skill。
+- **定位：** 面向当前改动或当前任务的安全 review，适合功能完成后或提交前使用。
+- **触发方式：** `/security-review`
+- **使用方式：** 直接执行 `/security-review`
+
+### 5.2.3 /security:security-audit 
+
+- **来源：** https://github.com/qdhenry/Claude-Command-Suite/blob/main/.claude/commands/security/security-audit.md
+- **定位：** 周期性全仓库安全体检，适合累计若干次功能合并后的定期巡检。
+- **触发方式：** /security:security-audit
+- **使用方式：** 直接执行 `/security:security-audit`
+
+## 5.3 测试
+
+### 5.3.1 test:write-tests 
+
+- **来源**: https://github.com/qdhenry/Claude-Command-Suite/blob/main/.claude/commands/test/write-tests.md
+
+- **调用方式：** /test:write-tests [目标代码/文件]
+
+- **核心功能：** 
+
+  | 阶段 | 步骤  | 说明                           |
+  | ---- | ----- | ------------------------------ |
+  | 准备 | 1-3   | 检测框架、分析代码、制定策略   |
+  | 实现 | 4-9   | 单测、集成测试、Mock、错误路径 |
+  | 扩展 | 10-13 | 性能、安全、跨平台、异步       |
+  | 维护 | 14-18 | 工具类、快照、文档、维护规范   |
+
+- **使用时机：**                                                                                                                                                                                                              
+      1. 新增业务逻辑后，为新增xxx.go等补充测试。
+          2. 修复 bug 后——先写复现测试，再修复（与 TDD 工作流配合）。
+          3. 安全审计发现缺陷后——校验缺失补充边界用例。
+          4. 接手存量代码——对覆盖率低的模块批量补测。
