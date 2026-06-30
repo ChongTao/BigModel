@@ -8,11 +8,13 @@
 
 - `git config core.hooksPath .githooks` 已在当前仓库生效
 - 暂存区内容通过 `powershell -File scripts/check-sensitive-info.ps1 -Staged`
-- 如发现真实 API Key、Bearer Token、密码、私钥块、带凭证的数据库连接串，必须先脱敏再提交
+- 如发现真实敏感信息，必须先脱敏再提交
 
-## 规则边界
+敏感信息的定义、人工复核范围和占位符例外规则，以 [document-security.md](./document-security.md) 为准。
 
-自动拦截主要覆盖高风险凭证模式，目的是在保证可用性的前提下减少误报：
+## 自动检查边界
+
+Git hook 的自动拦截主要覆盖高风险凭证模式，目的是在保证可用性的前提下减少误报：
 
 - 真实形态的 `sk-...` Key
 - 真实形态的 `Bearer ...` Token
@@ -20,7 +22,7 @@
 - `mysql://user:pass@host`、`mongodb://...` 一类带凭证连接串
 - 独立出现的私钥头
 
-以下内容仍需人工复核：
+以下内容仍需人工复核，提交前不能只依赖 hook：
 
 - 内网 IP、专有域名
 - 手机号、邮箱、身份证号等个人信息
@@ -33,3 +35,8 @@
 ```powershell
 powershell -File scripts/check-sensitive-info.ps1 -Staged
 ```
+
+## 规则边界
+
+- `document-security.md` 负责定义“什么是敏感信息，以及文档处理时如何检查”
+- 本文件负责定义“提交前必须经过什么 Git 检查流程”

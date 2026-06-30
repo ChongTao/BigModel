@@ -92,7 +92,6 @@ Claude 读取 `CLAUDE.md` 时会自动加载引用的文件内容：
 
 1. 在项目根目录创建 `CLAUDE.local.md`
 2. 将其加入 `.gitignore`，避免提交到版本库
-
 ```
 # .gitignore
 CLAUDE.local.md

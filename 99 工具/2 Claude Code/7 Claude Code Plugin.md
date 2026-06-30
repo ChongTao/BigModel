@@ -298,6 +298,8 @@ claude plugin validate
 
 审核通过后发布至 [`anthropics/claude-plugins-community`](https://github.com/anthropics/claude-plugins-community)。
 
+> 添加插件市场: /plugin marketplace add anthropics/claude-plugins-official
+
 ## 8 参考
 
 - https://docs.anthropic.com/zh-CN/docs/claude-code/plugins
