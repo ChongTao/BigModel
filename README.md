@@ -161,6 +161,7 @@
 
 - [99 工具/1 Cursor/1 Cursor.md](99%20%E5%B7%A5%E5%85%B7/1%20Cursor/1%20Cursor.md)
 - [99 工具/2 Claude Code/1 Claude Code安装.md](99%20%E5%B7%A5%E5%85%B7/2%20Claude%20Code/1%20Claude%20Code%E5%AE%89%E8%A3%85.md)
+- [99 工具/2 Claude Code/8 OpenClaude.md](99%20%E5%B7%A5%E5%85%B7/2%20Claude%20Code/8%20OpenClaude.md)
 - [99 工具/2 Claude Code/4 Claude Code MCP.md](99%20%E5%B7%A5%E5%85%B7/2%20Claude%20Code/4%20Claude%20Code%20MCP.md)
 - [99 工具/3 Codex/1 Codex.md](99%20%E5%B7%A5%E5%85%B7/3%20Codex/1%20Codex.md)
 - [99 工具/3 Codex/5 Codex AGENTS.md](99%20%E5%B7%A5%E5%85%B7/3%20Codex/5%20Codex%20AGENTS.md)
