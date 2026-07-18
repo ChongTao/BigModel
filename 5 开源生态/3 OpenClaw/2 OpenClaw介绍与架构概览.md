@@ -550,10 +550,10 @@ openclaw onboard --flow quickstart
 **`.env` 文件（不要提交到 git）：**
 
 ```bash
-ANTHROPIC_API_KEY=sk-xxxx
-DEEPSEEK_API_KEY=sk-xxxx
-TELEGRAM_BOT_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
-SLACK_BOT_TOKEN=xoxb-xxxx
+ANTHROPIC_API_KEY=<your_anthropic_api_key>
+DEEPSEEK_API_KEY=<your_deepseek_api_key>
+TELEGRAM_BOT_TOKEN=<your_telegram_bot_token>
+SLACK_BOT_TOKEN=<your_slack_bot_token>
 ```
 
 **config.yml 中引用：**

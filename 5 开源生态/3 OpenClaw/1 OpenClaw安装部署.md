@@ -239,50 +239,7 @@ openclaw config get gateway.port
 openclaw config set gateway.port 18789
 ```
 
-## 7 部署建议
-
-### 7.1 个人机器
-
-个人使用优先选择：
-
-1. 官方安装脚本
-2. `openclaw onboard --install-daemon`
-3. 本地 Dashboard 验证
-
-这条路径最适合长期常驻的自托管 Agent。
-
-### 7.2 Windows
-
-Windows 可以直接安装，但有两点要注意：
-
-1. 如果要做插件开发、脚本编排或依赖更多 Unix 工具，优先使用 **WSL2**
-2. 如果是原生 Windows 运行，优先用 PowerShell 安装脚本，不要混用多套 Node/npm 环境
-
-### 7.3 云服务器
-
-如果要部署到云上，建议选择一台干净的 Linux 主机，按以下顺序执行：
-
-1. 安装 Node.js
-2. 运行官方安装脚本
-3. 执行 `openclaw onboard --install-daemon`
-4. 用反向代理统一暴露入口
-5. 上线前执行 `openclaw doctor` 与 `openclaw gateway status`
-
-不建议直接采用来源不明的“一键镜像”或第三方打包脚本。
-
-默认情况下优先保持 Gateway 仅监听本机地址；如果必须暴露到局域网、Tailscale 或公网，至少同步配置认证令牌、反向代理和最小化访问面。
-
-### 7.4 Docker
-
-如果你的目标是：
-
-- 和宿主机环境隔离
-- 便于迁移
-- 在服务器中统一纳管
-
-可以再评估 Docker 方案；但对个人机器来说，官方安装脚本通常比容器方式更直接。
-
-## 8 一个最小可用流程
+## 7 一个最小可用流程
 
 ```bash
 # 1. 安装
@@ -301,7 +258,7 @@ openclaw dashboard
 openclaw doctor
 ```
 
-## 9 参考
+## 8 参考
 
 - https://docs.openclaw.ai/start/getting-started
 - https://docs.openclaw.ai/zh-CN/platforms/windows
