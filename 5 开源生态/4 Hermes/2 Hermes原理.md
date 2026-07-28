@@ -151,13 +151,53 @@ Agent 内置 `session_search` 工具，可以在所有历史对话中执行全�
 
 #### Honcho 用户建模
 
-Honcho 是由 Plastic Labs 开发的 AI 原生记忆后端，以插件形式集成到 Hermes 中。
+Honcho 是 Plastic Labs 开发的**状态化 Agent 记忆基础设施**，可使用托管服务，也可将其 FastAPI 服务自托管。它以插件形式接入 Hermes，为本地 Session 历史之外的长期、可推理记忆提供后端能力。
 
-它不替换 MEMORY.md 和 USER.md，而是在它们之上增加辩证推理层——通过分析你的对话模式，自动推导你未曾明确表达的偏好、目标和习惯。
+它不要求替换 `MEMORY.md` 和 `USER.md`：这两个文件仍适合保存人可读、可直接维护的明确事实；Honcho 则擅长从对话、事件、文档和工具轨迹中异步提取模式，形成可查询的深层记忆。启用时可通过 `hermes memory setup` 选择 Honcho 并配置托管或本地服务端。
 
+##### 核心数据模型
 
+Honcho 不是把所有内容简单向量化，而是以参与者（Peer）为中心组织记忆：
 
-https://github.com/plastic-labs/honcho 可以详细了解下，了解其功能
+```text
+Workspace（隔离一个应用或租户）
+  ├─ Peer（用户、Agent 或其他参与者）
+  └─ Session（一次会话/任务上下文）
+       ├─ 多个参与 Peer
+       └─ Message（消息、事件、文档片段或工具轨迹）
+```
+
+| 对象 | 作用 | 与 Hermes 记忆的关系 |
+| :--- | :--- | :--- |
+| Workspace | 顶层隔离边界，可用于区分应用、租户或环境 | 避免不同业务的记忆混用 |
+| Peer | 人类用户、Agent、群组、项目等可持续变化的实体 | 支持围绕“谁”积累偏好、目标与历史认识 |
+| Session | 多个 Peer 参与的一段对话或任务 | 对应 Hermes 的会话上下文，可生成摘要与上下文包 |
+| Message | Session 内的原子记录 | 可存对话、事件、文档或工具执行轨迹 |
+| Representation / Conclusion | 后台推理得出的画像、结论与低延迟快照 | 用于补充未被显式写入 Markdown 的长期模式 |
+
+Session 与 Peer 是多对多关系：一个用户或 Agent 可以参与多段 Session；一段 Session 也可包含多个用户和 Agent。Honcho 还可记录“某个 Peer 对另一个 Peer 的认知”，因此它适合多人、多 Agent 或持续协作场景，而不仅是单用户聊天记录。
+
+##### 从写入到注入的记忆循环
+
+```text
+写入：将 Peer、Session 与 Message 发送给 Honcho
+  → 推理：后台队列异步生成摘要、结论与 Peer representation
+  → 查询：按 Session 或 Peer 获取上下文、混合检索结果或自然语言洞察
+  → 注入：把满足 Token 预算的上下文包加入 Hermes 的模型调用
+```
+
+后台推理是异步的：新消息可立即保存，但其新增偏好或结论不会保证在同一时刻可读。交互式低延迟路径应优先读取已有 representation 或 Session context；需要更深分析时，再查询已完成的结论或等待后台任务处理。这样可以把“写入对话”与“提炼长期记忆”的成本、时延分开处理。
+
+##### 存储、检索与接入边界
+
+- 自托管 Honcho 使用 PostgreSQL 与 `pgvector` 保存业务数据和向量化文档，并由后台 worker 处理推理队列；这与 Hermes 本地的 SQLite + JSONL Session 存储是互补关系。
+- 检索可在 Workspace、Peer 或 Session 范围执行，并结合关键词与向量语义信号；返回结果可被整理为模型可用的上下文或摘要。
+- 对隐私敏感场景，应按租户设置独立 Workspace，并明确哪些对话、工具结果和文档允许同步到 Honcho。使用托管服务前还需确认数据保留、访问控制与合规要求。
+- 不应把 Honcho 的推理结论视为绝对事实。对于权限、支付、医疗、法律等高风险决策，仍需以原始数据、业务系统或人工审核为准。
+
+因此，Hermes 的本地文件记忆负责“明确且直接可控的事实”，SQLite Session 负责“可追溯的运行历史”，Honcho 则可作为“面向实体关系和长期模式的异步推理层”。三者组合可在可控性、检索效率与个性化之间取得平衡。
+
+> 关于 Honcho 的核心功能、使用流程、部署选择和生产治理，详见 [Honcho](./3%20Honcho.md)。
 
 ### 2.2 Skills
 
