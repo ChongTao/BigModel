@@ -127,7 +127,7 @@ Graphiti 的横向定位可以概括为：
 - 它更偏“时序图记忆引擎”
 - 它强调实体、关系、事件和时间变化
 
-如果要看它和 Memobase、Mem0、MemGPT、LangMem、Neo4j Agent Memory 的系统对比，统一放在：[10 记忆方案对比.md](./10%20记忆方案对比.md)
+如果要看它和 Memobase、Mem0、MemGPT、LangMem、Neo4j Agent Memory 的系统对比，统一放在：[记忆方案对比](../3%20记忆方案对比.md)。
 
 # 五 局限与注意点
 

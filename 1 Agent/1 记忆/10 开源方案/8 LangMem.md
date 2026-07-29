@@ -116,7 +116,7 @@ LangMem 的横向定位可以概括为：
 - 它更偏“memory toolkit / primitives”
 - 它强调和 LangGraph store 的原生集成
 
-如果要看它和 Memobase、Mem0、MemGPT、Graphiti、Neo4j Agent Memory 的系统对比，统一放在：[10 记忆方案对比.md](./10%20记忆方案对比.md)
+如果要看它和 Memobase、Mem0、MemGPT、Graphiti、Neo4j Agent Memory 的系统对比，统一放在：[记忆方案对比](../3%20记忆方案对比.md)。
 
 # 五 局限与注意点
 

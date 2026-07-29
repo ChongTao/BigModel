@@ -111,7 +111,7 @@ Neo4j Agent Memory 的横向定位可以概括为：
 - 它更偏“图原生 memory service”
 - 它强调 conversation、knowledge graph、reasoning memory 三者统一
 
-如果要看它和 Memobase、Mem0、MemGPT、Graphiti、LangMem 的系统对比，统一放在：[10 记忆方案对比.md](./10%20记忆方案对比.md)
+如果要看它和 Memobase、Mem0、MemGPT、Graphiti、LangMem 的系统对比，统一放在：[记忆方案对比](../3%20记忆方案对比.md)。
 
 # 五 局限与注意点
 
