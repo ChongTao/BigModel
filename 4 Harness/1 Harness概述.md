@@ -399,6 +399,10 @@ Harness 可以看作 Agent 的“操作系统”或“驾驶舱”。模型负�
 
 **一个裸模型不是智能体。只有当 Harness 为它提供状态、工具执行、反馈回路和可执行约束时，它才真正成为智能体。**
 
+![](https://substackcdn.com/image/fetch/$s_!IvOP!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F918bb549-8ca4-40ba-b9eb-99a6f0609033_1294x1294.png)
+
+
+
 # 七 参考资料
 
 - OpenAI: Harness engineering: leveraging Codex in an agent-first world

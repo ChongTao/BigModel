@@ -362,6 +362,8 @@ your-project/
 3. `skills/` — 当有复杂的多步骤工作流需要标准化时
 4. `agents/` — 当任务复杂到需要多个专业视角并行时
 
+![](https://substackcdn.com/image/fetch/$s_!h9iO!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcd523746-97c0-452b-8231-cbbad3c98d25_1199x654.png)
+
 # 3 参考
 
 - https://docs.anthropic.com/zh-CN/docs/claude-code/memory

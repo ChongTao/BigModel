@@ -1,4 +1,6 @@
-# 一 Graphiti 介绍
+# Graphiti
+
+## 一、介绍
 
 [Graphiti](https://github.com/getzep/graphiti) 是 Zep 团队开源的 **temporal context graph / 时序上下文图** 框架，目标是给 AI Agent 提供更适合动态环境的图记忆能力。
 

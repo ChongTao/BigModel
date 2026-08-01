@@ -1,4 +1,6 @@
-# 一 Neo4j Agent Memory 介绍
+# Neo4j Agent Memory
+
+## 一、介绍
 
 [Neo4j Agent Memory](https://github.com/neo4j-labs/agent-memory) 是 Neo4j Labs 开源的 **graph-native memory system**，目标是给 AI Agent 提供基于 Neo4j 的上下文图与长期记忆能力。
 

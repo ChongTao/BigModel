@@ -1,4 +1,6 @@
-# 一 LangMem 介绍
+# LangMem
+
+## 一、介绍
 
 [LangMem](https://github.com/langchain-ai/langmem) 是 LangChain 团队开源的 **memory toolkit / memory primitives**，目标是给 Agent 提供一套更轻量、可组合的长期记忆能力。
 
