@@ -14,6 +14,15 @@ Root files:
 
 Prefer keeping new content in the closest existing topic folder. Follow the existing numeric-prefix pattern for ordering.
 
+## 使用 AGENTS.md
+
+`AGENTS.md` 是仓库内 Agent 协作时应优先遵守的权威约束文件。它的价值不在于解释系统架构，而在于提供可直接执行的工作策略：明确如何构建、测试、提交，以及处理本仓库内容时必须遵守的限制。
+
+- 保持简短、具体、可操作；优先写清命令、版本限制、文件约定和完成条件。
+- 仅记录 Agent 无法可靠地从仓库本身推断出的信息；不要重复目录中已有的说明、代码或文档内容。
+- 避免写成面向读者的架构概览或泛化建议；模糊的“尽可能”“全面覆盖”等表述不如明确的验收条件有效。
+- 由熟悉仓库的人维护，并随工作流和约束变化更新；不要让 LLM 自动生成整份文件，以免引入重复、过期或不准确的规则。
+
 ## Build, Test, and Development Commands
 There is no build system or runtime app in this repo. Use lightweight content-validation commands:
 
