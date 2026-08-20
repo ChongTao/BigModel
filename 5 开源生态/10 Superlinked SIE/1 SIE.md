@@ -16,6 +16,8 @@
 ## 2. 技术亮点
 
 - OpenAI 兼容 API — 提供 /v1/embeddings、/v1/chat/completions、/v1/completions、/v1/responses，可无缝迁移现有 OpenAI 客户端代码。
+
+  ![](https://substackcdn.com/image/fetch/$s_!tW8A!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F882b9717-c6e3-4f62-b4e7-c9b2b72d1367_1376x768.png)
 - 多模型同时服务 — **按需加载模型权重**，LRU 策略自动驱逐，一个集群跑 100+ 模型。
 
   ![](https://substackcdn.com/image/fetch/$s_!lkC5!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7b6c56ca-0fcf-4b17-b9a4-0cf3f6b02d5f_1199x575.jpeg)
