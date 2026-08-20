@@ -127,6 +127,48 @@ Claude Code 会自动记录对未来还有复用价值的信息，例如：
 }
 ```
 
+### 1.4.4 减少权限确认：先收敛范围，再预批准
+
+Claude Code 的确认是对**文件修改、Shell 命令和外部服务调用**的安全边界。频繁确认时，优先把日常、低风险操作写成精确的权限规则；不要为了省事把所有操作都跳过确认。
+
+一个适合放在项目 `.claude/settings.json` 的示例：
+
+```json
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(npm run lint)",
+      "Bash(npm test:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)"
+    ]
+  }
+}
+```
+
+规则应按实际命令逐步加入：例如项目只用 `pnpm test`，就只允许 `Bash(pnpm test:*)`，而不是 `Bash(*)`。对 MCP 服务也应仅允许实际需要的工具；连接数据库、发布消息、部署等有外部副作用的工具不宜全局预批准。
+
+`claude --dangerously-skip-permissions` 和 `bypassPermissions` 会绕过全部确认，包含删除、网络和外部服务操作。仅可在隔离、可恢复且完全受信任的环境中临时使用，不能作为日常开发配置。
+
+### 1.4.5 全局、服务（项目）与本地权限的区别
+
+三种范围的选择取决于规则是否会在其他项目中同样安全、同样适用：
+
+| 范围 | 文件（Windows） | 适用范围 | 是否提交 Git | 适合放什么 |
+| --- | --- | --- | --- | --- |
+| 全局（用户级） | `%USERPROFILE%\\.claude\\settings.json` | 当前用户的所有 Claude Code 项目 | 否 | 所有项目都安全的个人偏好；不要放某个仓库专属的命令或凭证。 |
+| 服务/项目级 | `<仓库>\\.claude\\settings.json` | 这个仓库及其团队成员 | 通常是 | 团队统一的测试、格式化、只读 Git 命令和明确的安全禁止项。 |
+| 本地项目级 | `<仓库>\\.claude\\settings.local.json` | 当前机器上的这个仓库 | 否，应加入 `.gitignore` | 个人临时许可、机器相关路径和只适用于本机的工具。 |
+
+当多层配置出现冲突时，权限规则应遵循**拒绝优先**；不要依赖更宽泛的全局 `allow` 去覆盖项目中的 `deny`。实际生效配置可通过 `/permissions` 检查。团队规则优先放项目级，个人便利配置放本地项目级；全局层保持最小化，避免把某个项目的高权限带到其他仓库。
+
 ## 1.5 回退、恢复与导出
 
 Claude Code 的 `Checkpoint` 很像游戏存档，`Rewind` 类似读档回退。
