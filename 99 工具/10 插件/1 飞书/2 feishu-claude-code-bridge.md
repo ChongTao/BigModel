@@ -88,8 +88,17 @@ lark-channel-bridge daemon stop
 lark-channel-bridge daemon status
 ```
 
-对个人使用来说，前台 `run` 已经够用；  
-对需要长期在线接飞书消息的场景，daemon 更合适。
+多 profile：分别运行 Claude 和 Codex
+默认情况下，bridge 使用当前激活的 profile；可以通过 profile use <name> 切换。每个 profile 会维护独立的应用凭据、会话、工作目录和日志。只有在需要同时连接多个 PersonalAgent 应用，或分别运行 Claude 和 Codex 时，才需要创建多个 profile：
+```bash
+lark-channel-bridge start --profile claude --agent claude
+lark-channel-bridge start --profile codex --agent codex
+例如只重启 Codex bot：
+
+lark-channel-bridge restart --profile codex
+lark-channel-bridge status --profile codex
+```
+
 
 ## 2.5.2 飞书侧怎么用
 
