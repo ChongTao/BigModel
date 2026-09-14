@@ -11,7 +11,7 @@
 
 
 ### 核心设计：State、Node、Edge
-
+![](https://www.runoob.com/wp-content/uploads/2025/12/536b7d75-c1a2-4b0e-a28f-92e029fa7578.webp)
 从 LangGraph(LangChain 的进阶版)可以看出架构设计的精髓：
 
 - State

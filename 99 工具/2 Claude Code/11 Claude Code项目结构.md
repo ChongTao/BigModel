@@ -1,33 +1,6 @@
 # Claude Code 项目结构
 
-```html
-your-project/
-├── CLAUDE.md                    ← 团队共享指令，提交到 git
-├── CLAUDE.local.md              ← 个人覆盖，被 git 忽略（加入 .gitignore）
-└── .claude/
-    ├── settings.json            ← 权限 + 配置，提交到 git
-    ├── settings.local.json      ← 个人权限，被 git 忽略
-    ├── memory/                  ← 自动记忆存储（Claude 自动维护）
-    │   └── MEMORY.md
-    ├── commands/                ← 自定义斜杠命令
-    │   ├── review.md            →  /project:review
-    │   ├── fix-issue.md         →  /project:fix-issue
-    │   └── deploy.md            →  /project:deploy
-    ├── rules/                   ← 模块化指令文件（全局生效）
-    │   ├── code-style.md
-    │   ├── testing.md
-    │   └── api-conventions.md
-    ├── skills/                  ← 自动调用的工作流
-    │   ├── security-review/
-    │   │   └── SKILL.md
-    │   └── deploy/
-    │       └── SKILL.md
-    └── agents/                  ← 子代理角色定义
-        ├── code-reviewer.md
-        └── security-auditor.md
-```
-
-![](https://www.runoob.com/wp-content/uploads/2026/03/claude-code-project-runoob-1.svg)
+![](https://substackcdn.com/image/fetch/$s_!ITpM!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3b81cc25-df87-4ea8-a11b-9a719d5836b1_1166x1176.png)
 
 ## 1.1 CLAUDE.md
 
@@ -48,6 +21,7 @@ Claude Code 会从多个位置加载 `CLAUDE.md`，不同位置的文件作用�
 | **项目指令** | `./CLAUDE.md` 或 `./.claude/CLAUDE.md`                       | 项目的团队共享指令                    | 项目架构、编码标准、常见工作流   | 通过源代码控制的团队成员 |
 | **本地指令** | `./CLAUDE.local.md`                                          | 个人项目特定偏好；添加到 `.gitignore` | 你的沙箱 URL、首选测试数据       | 仅你（当前项目）         |
 
+![](https://substackcdn.com/image/fetch/$s_!Bdok!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0bddbd7c-d987-4c70-a38b-44db8104f8d7_680x369.png)
 ### 1.1.1 用 @ 语法引用外部文件
 
 当项目已经有了规范文档（如 API 设计规范、数据库设计文档等），不需要将内容复制到 `CLAUDE.md` 中，直接用 `@文件路径` 引用即可。
