@@ -2,6 +2,7 @@
 
 Tree-of-Thoughts（ToT，思维树）可以看作 CoT 的扩展：模型不再只走一条线性思路，而是同时探索多个推理分支，再从中挑选更优路径。
 
+![](https://substackcdn.com/image/fetch/$s_!lj_d!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F67da0383-e291-4eb0-bd59-5a749bc222cb_994x435.gif)
 ## 1.1 ToT 和 CoT 的区别
 
 可以简单对比：

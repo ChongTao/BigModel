@@ -156,8 +156,7 @@ Few-shot prompting 是指在提示词中加入少量示例，让模型先“看�
 ## 3.3 Chain-of-Thought（CoT）
 
 CoT 的核心是：让模型显式展示推理过程，而不是只给最终答案。
-
-![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7418719e3dab222dccb379b8879e1dc08ad34c78-2401x1000.png&w=3840&q=75)
+![](https://substackcdn.com/image/fetch/$s_!p96X!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8acf4668-c1e3-49c5-a7f0-3c5a2f903c0f_994x201.gif)
 
 适合：
 
