@@ -61,6 +61,7 @@ NLP 基础、查询处理、召回算法，以及模型与 Agent 运行的工程
 - [Dify](5%20开源生态/1%20Dify/1%20dify.md)
 - [LangChain](5%20开源生态/2%20LangChain/1%20LangChain.md) / [LangGraph](5%20开源生态/2%20LangChain/1%20LangGraph/1%20LangGraph介绍.md)
 - [OpenClaw](5%20开源生态/3%20OpenClaw/2%20OpenClaw介绍与架构概览.md)
+- [Jev（TypeSafe AI，SDK / Skill 开源）](5%20开源生态/12%20Jev/1%20Jev介绍.md)
 - [Ollama](5%20开源生态/7%20Ollama/1%20Ollama总结.md)
 - [推理框架](5%20开源生态/9%20推理框架/1%20推理框架介绍.md)
 
