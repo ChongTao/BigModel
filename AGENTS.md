@@ -2,18 +2,18 @@
 
 ## Project Structure & Module Organization
 
-This repository is a knowledge base organized by topic, not an application codebase. Content is mainly Markdown files under numbered directories:
+This repository is a knowledge base organized by topic, not an application codebase. Topic content is mainly Markdown under these directories:
 
-- `0 LLM`, `1 Agent`, `2 RAG`, `3 NLP`, `4 Harness`, `5 开源生态`, `6 生产`
-- `9 论文&博客`, `99 工具`
+- `01 大模型基础`, `02 检索与RAG`, `03 Agent与Harness`
+- `04 推理与部署`, `05 生产工程`, `06 AI开发工具`, `07 论文与阅读笔记`
 
 Root files:
 
-- `README.md`: brief project overview and reference links.
+- `README.md`: project overview, learning paths, and topic map.
 - `CLAUDE.md`: repository-specific review rules, especially sensitive-information checks.
 - `.claude/mcp/context7/.mcp.json`: local assistant tooling config.
 
-Prefer keeping new content in the closest existing topic folder. Follow the existing numeric-prefix pattern for ordering.
+Each topic directory has a `README.md` index. Put new content in the closest topic directory. Use two-digit prefixes for ordered topics and learning sequences; leave prefixes off standalone reference notes.
 
 ## 使用 AGENTS.md
 
@@ -38,7 +38,8 @@ There is no build system or runtime app in this repo. Use lightweight content-va
 Use clear, concise Markdown with consistent heading levels (`#`, `##`, `###`). Keep sections focused and actionable.
 
 - Preserve the existing language context; many files use Chinese, and English is acceptable when appropriate.
-- Use descriptive file names with topic-first naming; keep numeric prefixes where the folder already uses them.
+- Use descriptive file names with topic-first naming. Keep project names in their official spelling and place implementation notes under the matching knowledge domain.
+- Use two-digit prefixes only when they express a deliberate reading order.
 - Prefer UTF-8 encoding.
 
 ## Testing Guidelines
@@ -59,5 +60,5 @@ Recent commits are short, topic-based messages (for example: `RAG架构`, `skill
 For pull requests, include:
 
 - What changed and why.
-- Exact paths/modules touched (for example `2 RAG/` or `99 工具/2 Claude Code/`).
+- Exact paths/modules touched (for example `02 检索与RAG/` or `06 AI开发工具/Claude Code/`).
 - Screenshots only when visual rendering is relevant.

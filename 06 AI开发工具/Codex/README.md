@@ -1,0 +1,28 @@
+# Codex
+
+Codex 的安装使用、项目与上下文管理及扩展能力。
+
+## 文档目录
+
+### 入门与使用
+
+- [IDE与App](%E5%85%A5%E9%97%A8%E4%B8%8E%E4%BD%BF%E7%94%A8/IDE%E4%B8%8EApp.md)
+- [常见操作](%E5%85%A5%E9%97%A8%E4%B8%8E%E4%BD%BF%E7%94%A8/%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C.md)
+- [日常使用](%E5%85%A5%E9%97%A8%E4%B8%8E%E4%BD%BF%E7%94%A8/%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8.md)
+- [概述](%E5%85%A5%E9%97%A8%E4%B8%8E%E4%BD%BF%E7%94%A8/%E6%A6%82%E8%BF%B0.md)
+- [配置与认证](%E5%85%A5%E9%97%A8%E4%B8%8E%E4%BD%BF%E7%94%A8/%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A4%E8%AF%81.md)
+
+### 扩展能力
+
+- [AGENTS](%E6%89%A9%E5%B1%95%E8%83%BD%E5%8A%9B/AGENTS.md)
+- [Commands](%E6%89%A9%E5%B1%95%E8%83%BD%E5%8A%9B/Commands.md)
+- [MCP](%E6%89%A9%E5%B1%95%E8%83%BD%E5%8A%9B/MCP.md)
+- [Plugins](%E6%89%A9%E5%B1%95%E8%83%BD%E5%8A%9B/Plugins.md)
+- [Skills](%E6%89%A9%E5%B1%95%E8%83%BD%E5%8A%9B/Skills.md)
+- [Subagents](%E6%89%A9%E5%B1%95%E8%83%BD%E5%8A%9B/Subagents.md)
+
+### 项目与上下文
+
+- [上下文管理](%E9%A1%B9%E7%9B%AE%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86.md)
+- [工作原理](%E9%A1%B9%E7%9B%AE%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.md)
+- [项目结构](%E9%A1%B9%E7%9B%AE%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.md)
