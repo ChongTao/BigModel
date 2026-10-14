@@ -64,7 +64,9 @@ Few-shot 示例可以展示期望的格式、风格和任务边界，但不会�
 
 CoT 是通过提示或示例引导模型使用中间推导来处理任务的一类研究方法。在部分模型和数学、符号推理等任务上，它可能带来帮助，但效果取决于模型和任务，不能视为通用增益。
 
-参考：[Chain-of-Thought Prompting 研究论文](https://arxiv.org/abs/2201.11903)；[推理模型实践指南](https://platform.openai.com/docs/guides/reasoning-best-practices)。
+对具备专门推理能力的模型，通常应先给清晰目标、必要约束和输出要求，不必默认规定每个中间推理步骤，也不应把输出完整内部推理链作为验收条件。需要可审查性时，可要求简要说明依据、关键计算、假设或验证结果。模型和 API 提供的推理强度参数是调优项，不能代替清晰的任务定义；具体行为应按目标模型评估。
+
+参考：[Chain-of-Thought Prompting 研究论文](https://arxiv.org/abs/2201.11903)；[OpenAI 推理模型提示建议](https://developers.openai.com/api/docs/guides/reasoning)。
 
 ### 3.4 Self-Consistency
 
@@ -122,6 +124,17 @@ Prompt 的效果应通过代表性任务评估，而不是只凭一两个成功�
 
 自动评测适合重复比较，重要或高风险任务还应结合人工审查。评测指标应与实际用途匹配。
 
+### 6.1 生产提示词的版本管理
+
+生产提示词应作为应用的一部分进行版本管理，便于代码审查、回滚和复现实验。可采用以下做法：
+
+- 将提示模板与对应功能放在版本控制中，并记录模板版本、模型版本和关键生成配置。
+- 通过明确的参数或 Schema 传入动态值；避免把用户资料、文件内容等变量与固定指令无边界地拼接。
+- 用代表性样例、边界输入和已知失败案例建立评测集；另保留未参与调优的样例，检查提示词是否只对熟悉案例有效。
+- 发布前比较质量、成本和延迟；高影响应用可分阶段发布，并准备回滚路径。
+
+自动优化或人工改写产生的候选提示词都应经过同一评测流程，不能仅凭少数成功示例判断改进。
+
 ## 7. Prompt 与其他能力的边界
 
 ### 7.1 RAG
@@ -165,9 +178,9 @@ ICIO、APE、CARE、TRACE 等缩写在不同资料中的展开方式和适用范
 
 ### 官方文档
 
-- [OpenAI：Prompt Engineering](https://platform.openai.com/docs/guides/prompt-engineering)
-- [OpenAI：Reasoning Best Practices](https://platform.openai.com/docs/guides/reasoning-best-practices)
-- [OpenAI：Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs)
+- [OpenAI：Prompt Engineering](https://developers.openai.com/api/docs/guides/prompt-engineering)
+- [OpenAI：Reasoning](https://developers.openai.com/api/docs/guides/reasoning)
+- [OpenAI：Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
 - [Anthropic：Prompt Engineering Overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
 - [Google Gemini：Prompting Strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies)
 - [Hugging Face：Chat Templates](https://huggingface.co/docs/transformers/chat_templating)

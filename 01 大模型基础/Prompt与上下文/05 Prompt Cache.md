@@ -114,7 +114,7 @@ Prompt Cache 通常不是语义缓存：“主题相似”不意味着可以命�
 
 部分平台支持自动识别缓存前缀，部分平台还提供显式缓存断点、缓存控制字段或缓存键。它们不是跨平台统一接口，使用前应核对目标 API 对模型、请求结构、最小长度、TTL 和计费的要求。
 
-如果平台提供缓存键，应采用有助于稳定复用的设计，并避免用每请求随机值破坏复用。缓存键不能代替身份校验；是否共享缓存必须与租户、权限和数据范围相一致。
+如果平台提供缓存键，应先确认它用于缓存路由、复用分组还是使用量归集。只有平台文档明确说明缓存键参与路由或复用时，才按稳定分组设计；有些模型会自动处理缓存路由，缓存键可能只用于分组计量。缓存键不能保证命中，也不能代替身份校验；是否共享缓存必须与租户、权限和数据范围相一致。
 
 ### 4.4 数据隔离与保留策略
 
@@ -131,11 +131,16 @@ Prompt Cache 通常不是语义缓存：“主题相似”不意味着可以命�
 
 以下是机制示例，不代表各平台支持范围、价格或参数永久不变：
 
+下表中的厂商功能和参数核对日期为 2026-10-14。模型适用范围、TTL、缓存条件与价格变化较快，实际部署和成本估算前应复查目标 API 或推理框架的当前文档。
+
 | 实现 | 可观察到的方式 | 使用时需确认 |
 | --- | --- | --- |
-| OpenAI API Prompt Caching | 当前官方指南介绍自动缓存及部分模型支持的显式断点；最小缓存长度和可用控制项依模型或请求设置而异 | 查看缓存 Token 使用量、模型适用条件、缓存键、TTL 和当前计费规则；同一会话不保证命中 |
+| OpenAI API Prompt Caching | 当前指南区分隐式缓存和显式断点；断点策略、最小前缀与保留模式依模型及请求而异。部分模型支持 in_memory 与 24h 保留模式 | 查看模型条件、最小前缀、断点、保留模式和计费；默认保留策略可能受组织的数据保留设置影响。缓存按组织和区域隔离，路由到持有缓存实例也不保证 |
 | Anthropic API Prompt Caching | 当前官方指南介绍自动缓存和显式缓存断点；可配置的 TTL 与断点匹配规则按其 API 文档执行 | 当前文档列出 5 分钟和 1 小时 TTL 选项，并要求到缓存断点（含断点所标记内容）为止的前缀精确匹配；具体支持和价格应以当前文档为准 |
 | vLLM Automatic Prefix Caching | 自部署推理服务可复用匹配前缀的 KV 状态，降低重复预填充开销 | 关注缓存容量、淘汰、并发和实际服务吞吐；这是推理计算优化，不是 API 缓存输入折扣 |
+| SGLang UnifiedRadixCache / Session-Aware Radix Cache | 以 Radix Cache 管理可复用的前缀 KV；启用会话感知功能后，可在淘汰时优先保留仍被活动会话引用的 KV | `session_id` 只标记缓存引用，不会追加或重建对话上下文；每次请求仍需提供本轮需要的 Prompt。会话引用也不是永久 pin，内存压力下仍可能淘汰 KV |
+
+SGLang 的会话感知缓存只适用于相应的 UnifiedRadixCache 实现，其驱逐策略和缓存生命周期需结合部署版本配置。可参阅 [Session-Aware Radix Cache](https://github.com/sgl-project/sglang/blob/main/docs/docs/advanced_features/session_radix_cache.mdx) 与 [Radix Cache Eviction Policies](https://github.com/sgl-project/sglang/blob/main/docs/docs/advanced_features/radix_eviction_policy.mdx)。
 
 厂商 API 的缓存计量与自部署 Prefix Cache 的资源指标不同，评估时不要混用“缓存读取价格”“KV 块命中”和“缓存请求命中率”等口径。
 
@@ -192,3 +197,5 @@ Prompt Engineering 关注指令、示例和输出要求；Context Engineering �
 - [OpenAI API：Prompt caching](https://developers.openai.com/api/docs/guides/prompt-caching)
 - [Anthropic：Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
 - [vLLM：Automatic Prefix Caching](https://docs.vllm.ai/en/latest/features/automatic_prefix_caching.html)
+- [SGLang：Session-Aware Radix Cache](https://github.com/sgl-project/sglang/blob/main/docs/docs/advanced_features/session_radix_cache.mdx)
+- [SGLang：Radix Cache Eviction Policies](https://github.com/sgl-project/sglang/blob/main/docs/docs/advanced_features/radix_eviction_policy.mdx)
