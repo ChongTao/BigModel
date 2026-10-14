@@ -62,11 +62,11 @@ Few-shot 示例可以展示期望的格式、风格和任务边界，但不会�
 
 ### 3.3 Chain-of-Thought（CoT）
 
-CoT 是通过提示或示例引导模型使用中间推导来处理任务的一类研究方法。在部分模型和数学、符号推理等任务上，它可能带来帮助，但效果取决于模型和任务，不能视为通用增益。
+CoT 提示通过带中间推导的示例（few-shot）或分步指令（zero-shot）引导模型处理多步任务。它是提示方法，不是独立的解码算法；效果取决于模型和任务，也不能保证推导或答案正确。概念与使用边界见[03 CoT 提示与思维链](../推理与生成/03%20CoT.md)。
 
 对具备专门推理能力的模型，通常应先给清晰目标、必要约束和输出要求，不必默认规定每个中间推理步骤，也不应把输出完整内部推理链作为验收条件。需要可审查性时，可要求简要说明依据、关键计算、假设或验证结果。模型和 API 提供的推理强度参数是调优项，不能代替清晰的任务定义；具体行为应按目标模型评估。
 
-参考：[Chain-of-Thought Prompting 研究论文](https://arxiv.org/abs/2201.11903)；[OpenAI 推理模型提示建议](https://developers.openai.com/api/docs/guides/reasoning)。
+参考：[Chain-of-Thought Prompting 研究论文](https://arxiv.org/abs/2201.11903)；[Zero-Shot CoT 研究论文](https://arxiv.org/abs/2205.11916)；[OpenAI 推理模型提示建议](https://developers.openai.com/api/docs/guides/reasoning)。
 
 ### 3.4 Self-Consistency
 
