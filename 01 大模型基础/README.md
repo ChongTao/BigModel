@@ -30,7 +30,7 @@ flowchart LR
 1. **理解模型**：[01 LLM基本概念](模型原理与训练/01%20LLM%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.md) → [02 Transformer](模型原理与训练/02%20Transformer.md) → [03 模型架构谱系](模型原理与训练/03%20%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%E8%B0%B1%E7%B3%BB.md) → [04 Embedding](模型原理与训练/04%20Embedding.md)。
 2. **理解模型如何训练与验证**：[05 大模型训练流程](模型原理与训练/05%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B.md) → [06 后训练概述](模型原理与训练/06%20%E5%90%8E%E8%AE%AD%E7%BB%83%E6%A6%82%E8%BF%B0.md) → [07 微调](模型原理与训练/07%20%E5%BE%AE%E8%B0%83.md) → [08 强化学习](模型原理与训练/08%20%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0.md) → [09 Benchmark与常见指标](模型原理与训练/09%20Benchmark%E4%B8%8E%E5%B8%B8%E8%A7%81%E6%8C%87%E6%A0%87.md)。
 3. **组织一次请求**：[01 Prompt Engineering](Prompt%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/01%20Prompt%20Engineering.md) → [02 对话模板与上下文装配](Prompt%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/02%20%E5%AF%B9%E8%AF%9D%E6%A8%A1%E6%9D%BF%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87%E8%A3%85%E9%85%8D.md) → [03 Context Engineering](Prompt%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/03%20Context%20Engineering.md) → [04 上下文压缩](Prompt%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/04%20%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8E%8B%E7%BC%A9.md) → [05 Prompt Cache](Prompt%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/05%20Prompt%20Cache.md)。
-4. **控制生成与推理**：[01 生成策略与输出控制](推理与生成/01%20%E7%94%9F%E6%88%90%E7%AD%96%E7%95%A5%E4%B8%8E%E8%BE%93%E5%87%BA%E6%8E%A7%E5%88%B6.md) → [02 推理时计算与推理模型](推理与生成/02%20%E6%8E%A8%E7%90%86%E6%97%B6%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B.md) → [03 CoT 提示方法](推理与生成/03%20CoT.md) → [04 Self-Ask](推理与生成/04%20Self-Ask.md) → [05 ToT](推理与生成/05%20ToT.md)。
+4. **控制生成与推理**：[01 生成策略与输出控制](推理与生成/01%20%E7%94%9F%E6%88%90%E7%AD%96%E7%95%A5%E4%B8%8E%E8%BE%93%E5%87%BA%E6%8E%A7%E5%88%B6.md) → [02 推理时计算与推理模型](推理与生成/02%20%E6%8E%A8%E7%90%86%E6%97%B6%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B.md) → [03 CoT 提示方法](推理与生成/03%20CoT.md) → [04 Self-Ask 子问题分解](推理与生成/04%20Self-Ask.md) → [05 ToT](推理与生成/05%20ToT.md)。
 
 ## 文档目录
 
@@ -69,7 +69,7 @@ flowchart LR
 - [01 生成策略与输出控制](推理与生成/01%20%E7%94%9F%E6%88%90%E7%AD%96%E7%95%A5%E4%B8%8E%E8%BE%93%E5%87%BA%E6%8E%A7%E5%88%B6.md)
 - [02 推理时计算与推理模型](推理与生成/02%20%E6%8E%A8%E7%90%86%E6%97%B6%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B.md)
 - [03 CoT 提示方法](推理与生成/03%20CoT.md)
-- [04 Self-Ask](推理与生成/04%20Self-Ask.md)
+- [04 Self-Ask 子问题分解](推理与生成/04%20Self-Ask.md)
 - [05 ToT](推理与生成/05%20ToT.md)
 
 ## 与相邻领域的分工
