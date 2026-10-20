@@ -77,6 +77,7 @@ flowchart LR
 | 主题 | 本领域关注点 | 深入内容 |
 | --- | --- | --- |
 | Embedding | Token 表示、向量表示和模型类别 | [检索与RAG](../02%20%E6%A3%80%E7%B4%A2%E4%B8%8ERAG/README.md)中的向量检索、Embedding模型和Reranker |
+| 经典 NLP 任务 | 面向 LLM 的架构结构、训练链路与生成机制 | [检索与RAG](../02%20%E6%A3%80%E7%B4%A2%E4%B8%8ERAG/README.md)中的文本表示、分类、NER、相似度计算和 Seq2Seq |
 | 上下文中的外部知识 | 把已选定的资料组织进请求 | [检索与RAG](../02%20%E6%A3%80%E7%B4%A2%E4%B8%8ERAG/README.md)中的数据处理、召回、重排和引用 |
 | 工具调用 | 模型如何表达工具意图和生成参数 | [Agent与Harness](../03%20Agent%E4%B8%8EHarness/README.md)中的工具执行、Agent循环和权限控制 |
 | 推理性能 | 采样、推理时计算与质量/成本权衡 | [推理与部署](../04%20%E6%8E%A8%E7%90%86%E4%B8%8E%E9%83%A8%E7%BD%B2/README.md)中的KV Cache、Serving、量化和吞吐优化 |
