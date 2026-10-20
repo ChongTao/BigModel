@@ -1,10 +1,10 @@
-# 一 Transformer
+# Transformer
 
 Transformer 是现代大语言模型最核心的底层架构之一。它由 Google 团队在 2017 年的论文 [Attention Is All You Need](https://arxiv.org/abs/1706.03762) 中提出。
 
 如果前一篇 [01 LLM基本概念.md](01%20LLM%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.md) 解决的是“LLM 在处理什么、输出什么”，那么这一篇解决的是：**模型内部到底用什么结构完成这些计算。**
 
-## 1.1 Transformer 的核心思想
+## Transformer 的核心思想
 
 Transformer 的核心思想是：
 
@@ -18,7 +18,7 @@ Transformer 的核心思想是：
 - 更擅长建模长距离依赖
 - 更容易扩展到超大参数规模
 
-## 1.2 Transformer 结构图
+## Transformer 结构图
 
 ![](https://www.runoob.com/wp-content/uploads/2025/06/Transformer_full_architecture.png)
 
@@ -31,9 +31,9 @@ Transformer 的核心思想是：
 
 但要注意：**“Transformer”是一个架构家族，不等于必须同时有 Encoder 和 Decoder。**
 
-## 1.3 编码器与解码器
+## 编码器与解码器
 
-### 1.3.1 编码器
+### 编码器
 
 编码器的作用是：对输入序列做上下文化理解。
 
@@ -46,7 +46,7 @@ Transformer 的核心思想是：
 
 编码器适合理解任务，因此很多理解型模型会偏向 Encoder-Only 结构。
 
-### 1.3.2 解码器
+### 解码器
 
 解码器的作用是：根据已有上下文一步步生成后续内容。
 
@@ -57,7 +57,7 @@ Transformer 的核心思想是：
 
 这保证了生成过程符合“从前到后逐步生成”的方式。
 
-### 1.3.3 为什么 Decoder-Only 很适合 LLM
+### 为什么 Decoder-Only 很适合 LLM
 
 现代通用 LLM 大多采用 Decoder-Only 架构，原因包括：
 
@@ -73,7 +73,7 @@ Transformer 的核心思想是：
 
 因此，今天大家说“Transformer 是 LLM 的基础”，更准确的意思是：**LLM 大多建立在 Transformer 的变体之上，而不是照搬最早那张完整结构图。**
 
-## 1.4 Self-Attention
+## Self-Attention
 
 Self-Attention 是 Transformer 的核心。它要解决的问题是：
 
@@ -89,7 +89,7 @@ Self-Attention 是 Transformer 的核心。它要解决的问题是：
 
 这就是注意力机制的意义：对上下文做有重点的加权读取。
 
-## 1.5 Q、K、V 怎么理解
+## Q、K、V 怎么理解
 
 可以把 Q、K、V 理解成一次内部检索：
 
@@ -106,7 +106,7 @@ Self-Attention 是 Transformer 的核心。它要解决的问题是：
 5. 对所有 `V` 做加权求和
 6. 得到当前 token 更新后的表示
 
-## 1.6 Multi-Head Attention
+## Multi-Head Attention
 
 Transformer 不只用一个注意力头，而是会同时使用多个头并行关注不同模式。
 
@@ -123,7 +123,7 @@ Transformer 不只用一个注意力头，而是会同时使用多个头并行�
 
 这也是 Transformer 表达能力强的重要原因之一。
 
-## 1.7 Transformer 的关键组件
+## Transformer 的关键组件
 
 先区分两个层面：
 
@@ -142,7 +142,7 @@ Token Embedding 通常在输入侧查表得到；位置机制的作用位置取�
 
 可以把它理解成：每一层都让 Token “重新看一遍上下文”，然后把自己的表示更新得更准确。
 
-## 1.8 隐藏表示如何变成输出
+## 隐藏表示如何变成输出
 
 Self-Attention 和 Transformer 层处理出来的，首先不是最终答案，而是一串更丰富的**隐藏表示（hidden states）**。
 
@@ -161,7 +161,7 @@ Self-Attention 和 Transformer 层处理出来的，首先不是最终答案，�
 - Attention 更新的是表示，不是直接“选词”
 - 真正变成输出 token，还要经过输出层和采样步骤
 
-## 1.9 Transformer 解决了什么问题
+## Transformer 解决了什么问题
 
 相比早期的 RNN / LSTM，Transformer 的优势主要在于：
 
@@ -172,7 +172,7 @@ Self-Attention 和 Transformer 层处理出来的，首先不是最终答案，�
 
 现代大语言模型、视觉 Transformer、多模态模型，很多都建立在 Transformer 或其变体之上。
 
-## 1.10 常见扩展方向
+## 常见扩展方向
 
 Transformer 并不是停留在 2017 年原始结构不变的。后续很多能力增强，都是在这个家族上继续扩展出来的。
 
@@ -185,7 +185,7 @@ Transformer 并不是停留在 2017 年原始结构不变的。后续很多能�
 
 这些方向分别涉及序列计算、位置信息、参数路由和输入模态，不能简单看成同一类“Transformer 改进”。
 
-### 1.10.1 常见组件与工程实现
+### 常见组件与工程实现
 
 - **MHA、MQA、GQA**：它们都属于注意力头组织方式。MQA 和 GQA 使用较少的 Key/Value 头，常用于降低自回归生成时 KV Cache 的容量和带宽需求。
 - **MLA（Multi-head Latent Attention）**：将 Key/Value 信息压缩到低维潜在表示，以减少自回归推理时的 KV Cache 占用。DeepSeek-V2 的[技术报告](https://arxiv.org/abs/2405.04434)给出了代表性实现。MLA 与 MQA/GQA 都能降低缓存负担，具体机制不同。
@@ -195,7 +195,7 @@ Transformer 并不是停留在 2017 年原始结构不变的。后续很多能�
 
 GQA、MLA、KV Cache 与注意力内核的服务端实现见 [推理与部署](../../04%20%E6%8E%A8%E7%90%86%E4%B8%8E%E9%83%A8%E7%BD%B2/README.md)。不同模型的架构组合见 [03 模型架构谱系](03%20%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%E8%B0%B1%E7%B3%BB.md)。
 
-## 1.11 一句话总结
+## 一句话总结
 
 如果说：
 
