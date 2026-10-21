@@ -1,24 +1,21 @@
 # LLM生成参数详解
 ## 1. 参数速查
 
-| 参数 | 控制什么 | 常见字段名 | 常见取值 | 详见 |
-| --- | --- | --- | --- | --- |
-| 温度 | 候选分布的尖锐程度，即随机性大小 | `temperature` | 0-2，部分平台限 0-1 | §2.1 |
-| 核采样 | 按累计概率保留候选集合 | `top_p`、`topP` | 0-1 | §2.2 |
-| Top-k | 按数量保留候选 | `top_k`、`topK` | 正整数 | §2.3 |
-| Min-p | 按相对最高概率的阈值过滤 | `min_p` | 0-1，通常取较小值 | §2.4 |
-| 频次惩罚 | 按出现次数加重惩罚 | `frequency_penalty` | 常见 -2 到 2 | §2.5 |
-| 存在惩罚 | 已出现过的 Token 是否降分 | `presence_penalty` | 常见 -2 到 2 | §2.6 |
-| 重复惩罚 | 引擎自定义的重复抑制规则 | `repetition_penalty` | 通常以 1 为中性 | §2.5、§2.6 |
-| 输出预算 | 最多生成多少 Token | `max_tokens`、`max_completion_tokens`、`max_output_tokens`、`maxOutputTokens` | 正整数，受模型上限约束 | 01 §2.1 |
-| 停止条件 | 命中字符串即结束生成 | `stop`、`stop_sequences` | 字符串或字符串数组 | 01 §2.2 |
-| 分数偏置 | 指定 Token ID 加减分 | `logit_bias`、`logitBias` | Token ID 到偏置值的映射 | 01 §1.4 |
-| 随机种子 | 复现实验的尝试 | `seed` | 整数 | 01 §4 |
-| 候选数量 | 一次请求返回多个结果 | `n`、`candidateCount`、`num_return_sequences` | 正整数 | 01 §4 |
-| 推理预算 | 内部推理投入多少 | `reasoning.effort`、`thinking.budget_tokens`、`thinkingConfig.thinkingBudget` | 枚举或 Token 数 | 01 §4 |
-
-表中 `01` 指 [01 生成策略与输出控制](01%20生成策略与输出控制.md)。同名参数在不同平台的公式、计数范围和默认值并不等价，接入前先确认目标实现是否支持。
-
+| 参数 | 控制什么 | 常见字段名 | 常见取值 |
+| --- | --- | --- | --- |
+| 温度 | 候选分布的尖锐程度，即随机性大小 | `temperature` | 0-2，部分平台限 0-1 |
+| 核采样 | 按累计概率保留候选集合 | `top_p`、`topP` | 0-1 |
+| Top-k | 按数量保留候选 | `top_k`、`topK` | 正整数 |
+| Min-p | 按相对最高概率的阈值过滤 | `min_p` | 0-1，通常取较小值 | 
+| 频次惩罚 | 按出现次数加重惩罚 | `frequency_penalty` | 常见 -2 到 2 | 
+| 存在惩罚 | 已出现过的 Token 是否降分 | `presence_penalty` | 常见 -2 到 2 |
+| 重复惩罚 | 引擎自定义的重复抑制规则 | `repetition_penalty` | 通常以 1 为中性 | 
+| 输出预算 | 最多生成多少 Token | `max_tokens`、`max_completion_tokens`、`max_output_tokens`、`maxOutputTokens` | 正整数，受模型上限约束 | 
+| 停止条件 | 命中字符串即结束生成 | `stop`、`stop_sequences` | 字符串或字符串数组 |
+| 分数偏置 | 指定 Token ID 加减分 | `logit_bias`、`logitBias` | Token ID 到偏置值的映射 | 
+| 随机种子 | 复现实验的尝试 | `seed` | 整数 | 
+| 候选数量 | 一次请求返回多个结果 | `n`、`candidateCount`、`num_return_sequences` | 正整数 | 
+| 推理预算 | 内部推理投入多少 | `reasoning.effort`、`thinking.budget_tokens`、`thinkingConfig.thinkingBudget` | 枚举或 Token 数 | 
 ## 2. 采样与候选过滤
 
 ### 2.1 temperature
@@ -205,6 +202,3 @@
 - [OpenAI API：Chat Completions](https://developers.openai.com/api/docs/api-reference/chat-completions)：`temperature`、`top_p`、`frequency_penalty`、`presence_penalty`、`logit_bias` 等字段的取值范围与默认值。
 - [Anthropic API：Messages](https://platform.claude.com/docs/en/api/messages)：消息接口的生成参数与取值范围。
 - [Gemini API：Generate content](https://ai.google.dev/gemini-api/docs/generate-content) 与 [API reference](https://ai.google.dev/api/generate-content)：生成配置字段名与取值范围。
-- Holtzman 等，[The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751)：讨论神经文本退化与 nucleus sampling。
-- [01 生成策略与输出控制](01%20生成策略与输出控制.md)：解码原理、输出预算、结构化输出与模型专属参数。
-- [02 推理时计算与推理模型](02%20推理时计算与推理模型.md)：推理预算与候选数量如何影响质量、延迟和成本。
