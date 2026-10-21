@@ -59,7 +59,7 @@ MCP 的典型流程通常是：
 3. 客户端根据当前任务选择能力
 4. 客户端发起调用或读取请求
 5. 服务端返回结构化结果
-
+![](https://www.dailydoseofds.com/content/images/2025/06/mcp-only--1-.gif)
 这里的关键是：客户端不必提前把每个工具的实现写死，而是可以通过协议动态发现和使用能力。
 
 ## 2.1 一个重要特点：发现优于硬编码
@@ -143,8 +143,6 @@ MCP 常见地基于结构化消息机制工作，常见操作包括：
 }
 ```
 
-![](https://www.dailydoseofds.com/content/images/2025/06/mcp-only--1-.gif)
-
 # 四 MCP 的价值
 
 MCP 的工程价值主要体现在：
@@ -156,31 +154,107 @@ MCP 的工程价值主要体现在：
 
 在多工具、跨系统、跨模型的场景下，这种价值会更明显。
 
-# 五 MCP 的边界
+# 五 MCP 开发示例
 
-MCP 并不解决所有问题，它主要不负责：
+下面以 Python 官方 SDK（`pip install mcp`，Python 3.10+）的 FastMCP 为例，把两个已有接口封装成一个 MCP 服务：日志查询接口和数据库查询接口。封装的核心只有三件事：声明服务、用 `@mcp.tool()` 把函数暴露为工具、选择传输方式启动；参数校验、只读限制和错误语义在服务端兜底。
 
-- 模型到底是否应该调用某个工具
-- 多步任务如何推理和规划
-- 任务执行后的验证与恢复
-- 整个 Agent 工作流的运行控制
+## 5.1 封装思路
 
-这些问题通常分别落在：
+| 现有接口 | MCP 工具 | 封装时补的约束 |
+| :--- | :--- | :--- |
+| 日志查询 `search_logs(keyword, level, limit)` | `query_logs` | 级别枚举、返回条数上限 |
+| 数据库查询 `run_sql(sql, params)` | `query_database` | 只读语句白名单、自动补 `LIMIT` |
 
-- Function Calling / Tool Use
-- ReAct / Plan-and-Execute 等推理范式
-- Harness / Agent Runtime
+函数的名字、类型注解和 docstring 会直接进入 `tools/list` 的返回，成为模型理解工具的唯一依据，因此描述要写清参数取值和返回结构。
 
-所以，MCP 是连接层，不是完整 Agent 系统本身。
+## 5.2 核心实现
 
-# 六 与 Harness 的关系
+```python
+"""把现有的日志查询与数据库查询接口封装为 MCP 服务。"""
 
-Harness 往往会把 MCP 作为外部能力接入的一部分来使用。
+import json
+import re
 
-可以理解为：
+from mcp.server.fastmcp import FastMCP
+from mcp.server.fastmcp.exceptions import ToolError
 
-- MCP 负责把工具和资源标准化暴露出来
-- Harness 负责把这些能力组织进真实任务流
+mcp = FastMCP(
+    "ops-query",
+    instructions="只读运维查询服务：日志检索与数据库查询。",
+)
 
-也就是说，MCP 提供的是“接口生态”，Harness 提供的是“执行环境”。
+# ---- 现有业务接口，替换为真实实现 ----
 
+def _search_logs(keyword: str, level: str, limit: int) -> list[dict]:
+    """现有日志查询接口：返回结构化日志列表。"""
+    raise NotImplementedError
+
+
+def _run_sql(sql: str, params: tuple = ()) -> list[dict]:
+    """现有数据库查询接口：执行只读 SQL，返回行列表。"""
+    raise NotImplementedError
+
+
+# ---- MCP 工具封装 ----
+
+@mcp.tool()
+def query_logs(keyword: str, level: str = "INFO", limit: int = 100) -> str:
+    """按关键字检索应用日志。
+
+    Args:
+        keyword: 日志关键字，如 trace_id 或错误信息片段。
+        level: 日志级别，取值 DEBUG/INFO/WARN/ERROR。
+        limit: 最多返回条数，1 到 500。
+    """
+    if not 1 <= limit <= 500:
+        raise ToolError("limit 必须在 1 到 500 之间")
+    rows = _search_logs(keyword, level.upper(), limit)
+    return json.dumps({"count": len(rows), "logs": rows}, ensure_ascii=False)
+
+
+_READ_ONLY = re.compile(r"^\s*(select|with|show|describe|explain)\b", re.I)
+
+
+@mcp.tool()
+def query_database(sql: str, params: list[str] | None = None) -> str:
+    """执行只读 SQL 查询数据库，返回结果行。
+
+    Args:
+        sql: 只允许 SELECT/WITH/SHOW/DESCRIBE/EXPLAIN 开头的语句。
+        params: 位置参数列表，按顺序绑定到 SQL 占位符。
+    """
+    if not _READ_ONLY.match(sql):
+        raise ToolError("仅支持只读查询语句")
+    if not re.search(r"\blimit\s+\d+\s*$", sql, re.I):
+        sql = f"{sql.rstrip().rstrip(';')} LIMIT 200"
+    rows = _run_sql(sql, tuple(params or ()))
+    return json.dumps({"count": len(rows), "rows": rows}, ensure_ascii=False)
+
+
+if __name__ == "__main__":
+    mcp.run()  # 默认 stdio 传输，由本地客户端拉起进程
+```
+
+## 5.3 客户端接入
+
+客户端配置只描述如何拉起服务，不写业务逻辑：
+
+```json
+{
+  "mcpServers": {
+    "ops-query": {
+      "command": "python",
+      "args": ["/opt/mcp/ops_query_server.py"]
+    }
+  }
+}
+```
+
+## 5.4 实现要点
+
+- 描述即提示词：工具名、参数说明和返回结构会进入 `tools/list`，写得不清楚模型就会猜错用法，呼应第 2.1 节的发现优于硬编码。
+- 校验前置：取值范围、只读白名单和 `LIMIT` 在服务端强制，不依赖调用方自觉。
+- 错误语义：抛 `ToolError` 会转换为 `isError: true` 的调用结果，模型可据此改参数重试；不要把异常吞成空结果。
+- 返回结构化文本：JSON 字符串便于模型解析；结果集过大时先分页或摘要，避免撑爆上下文。
+- 传输选择：本地客户端用 stdio；跨进程或跨主机改用 Streamable HTTP，并把鉴权放在 HTTP 层。
+- 凭据管理：日志平台与数据库凭据经环境变量或密钥管理注入，客户端配置和代码中不出现明文。
