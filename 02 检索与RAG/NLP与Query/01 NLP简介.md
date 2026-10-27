@@ -354,7 +354,7 @@ Transformer 可用于机器翻译、摘要等序列任务。训练时通常能�
 
 ## 11.2 核心特点
 
-原始 Transformer 用自注意力在允许的位置之间直接交换信息，再由前馈网络处理各位置表示；它不靠循环状态逐步传递信息。本节从经典 NLP 任务的视角介绍原始结构；面向 LLM 的架构变体、残差流、Pre-LN 与 Post-LN、FFN、注意力复杂度、KV Cache 和位置编码见 [02 Transformer](../../01%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E4%B8%8E%E8%AE%AD%E7%BB%83/02%20Transformer.md)。
+原始 Transformer 用自注意力在允许的位置之间直接交换信息，再由前馈网络处理各位置表示；它不靠循环状态逐步传递信息。本节从经典 NLP 任务的视角介绍原始结构；面向 LLM 的架构变体、残差流、Pre-LN 与 Post-LN、FFN、注意力复杂度、KV Cache 和位置编码见 [02 Transformer](../../01%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/3%20%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%E4%B8%8E%E8%AE%AD%E7%BB%83/02%20Transformer.md)。
 
 # 12 序列到序列（Seq2Seq）模型
 
