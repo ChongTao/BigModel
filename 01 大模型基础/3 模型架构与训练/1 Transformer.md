@@ -55,15 +55,15 @@ Transformer 的核心思想是：
 
 这保证了生成过程符合“从前到后逐步生成”的方式。
 
-### 3.3 为什么 Decoder-Only 很适合 LLM
+### 3.3 三种结构的特点与适用场景
 
-现代通用 LLM 大多采用 Decoder-Only 架构，原因包括：
+| 结构 | 信息流与训练方式 | 适用场景 | 代表模型 |
+| --- | --- | --- | --- |
+| Encoder-only | 双向读取输入各位置，常通过掩码预测或任务头学习上下文化表示 | 分类、实体识别和文本表示；标准结构没有因果解码路径，通常不直接用于开放式逐 Token 生成 | BERT |
+| Decoder-only | 使用因果掩码，只读取当前位置及之前的 Token，常以预测下一 Token 训练 | 对话、写作、代码和问答等可统一建模为续写的生成任务 | GPT、Llama、Qwen |
+| Encoder-Decoder | Encoder 编码输入，Decoder 通过交叉注意力读取编码结果并生成输出 | 翻译、摘要等输入输出边界清楚的转换任务 | 原始 Transformer、T5 |
 
-- 训练目标天然统一：下一 token 预测
-- 更适合统一对话、写作、代码、问答等生成任务
-- 更容易规模化扩展
-
-因此，今天大家说“Transformer 是 LLM 的基础”，更准确的意思是：**LLM 大多建立在 Transformer 的变体之上，而不是照搬最早那张完整结构图。**
+通用 LLM 大多采用 Decoder-only，因为下一 Token 预测能统一文本、对话和代码等生成目标，结构也便于规模化训练。这个趋势不代表它对所有任务都更合适；选型仍需按目标数据比较质量、延迟和成本。
 
 ## 4. Self-Attention
 
@@ -196,6 +196,19 @@ Transformer 不只用一个注意力头，而是会同时使用多个头并行�
 
 这也是 Transformer 表达能力强的重要原因之一。
 
+### 6.1 注意力中的 K/V 组织方式
+
+多头注意力可按查询头与 K/V 头的共享关系区分。减少 K/V 头数通常可以缩小 KV Cache，但具体收益还取决于头维度、上下文长度和实现方式。
+
+| 方式 | K/V 组织 | 主要特点 |
+| --- | --- | --- |
+| MHA | 每个查询头有对应的 K/V 头 | K/V 头数随查询头数增加，缓存开销相对较大 |
+| MQA | 所有查询头共享一组 K/V 头 | K/V 头数最少，缓存需求较低 |
+| GQA | 一组查询头共享一组 K/V 头 | 在 MHA 与 MQA 之间折中 |
+| MLA | 将 K/V 信息压缩到低维潜在表示 | 通过潜在表示压缩缓存，机制不同于按头共享 |
+
+这些方式属于注意力层的设计选项，不能单凭名称判断模型质量或推理速度。
+
 ## 7. Transformer 的关键组件
 
 可以按三个位置来区分：
@@ -243,6 +256,12 @@ FFN 常被一句话带过成“非线性变换”，但它的分量远比这大�
 - 一种研究视角把 FFN 描述为键值记忆，以“模式匹配 → 写出对应内容”解释它如何存储和调用部分关联
 
 键值记忆是解释 FFN 的一种研究视角，不代表事实知识只存储在 FFN。提示词可以通过上下文提供新事实；微调能改变参数及模型行为，但不保证模型准确记住事实。需要持续更新或引用来源的知识通常更适合结合 RAG。
+
+### 7.4 MoE：按 Token 路由的专家 FFN
+
+Dense Transformer 通常让每个 Token 经过相同的 FFN 参数。MoE（Mixture of Experts）会在部分层放入多个专家 FFN，由路由器为每个 Token 选择 Top-k 专家参与计算，因此全模型权重总量可以大于单个 Token 实际激活的参数量。
+
+比较 MoE 时要分别看**总参数**和**激活参数**：总参数影响权重存储需求，激活参数可粗略反映单 Token 的计算规模；两者都不能单独预测服务速度或整体显存。路由均衡、批量大小、跨设备通信、权重精度和运行时实现都会影响效果，MoE 不保证在所有场景下都比 Dense 更快或更便宜。推理侧资源影响见[推理工程概述](../../04%20%E6%8E%A8%E7%90%86%E4%B8%8E%E9%83%A8%E7%BD%B2/%E6%8E%A8%E7%90%86%E5%B7%A5%E7%A8%8B/01%20%E6%8E%A8%E7%90%86%E5%B7%A5%E7%A8%8B%E6%A6%82%E8%BF%B0.md)。
 
 ## 8. 参数量都花在哪
 
@@ -361,6 +380,8 @@ Decode 每步都要读取相关 KV Cache，因此许多服务负载会受到显�
 ## 14. 参考资料
 
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762)：Transformer 原始论文。
+- [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)：Encoder-only 代表。
+- [Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer（T5）](https://arxiv.org/abs/1910.10683)：Encoder-Decoder 代表。
 - [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864)：RoPE 位置编码。
 - [Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation](https://arxiv.org/abs/2108.12409)：ALiBi。
 - [YaRN: Efficient Context Window Extension of Large Language Models](https://arxiv.org/abs/2309.00071)：长上下文外推方法。
