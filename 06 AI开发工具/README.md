@@ -1,8 +1,12 @@
 # 06 AI开发工具
 
-Claude Code、Codex 及其扩展和集成工具。
+Claude Code、Codex、模型微调工具，以及相关扩展和集成。
 
 ## 文档目录
+
+### 模型微调工具
+
+- [Unsloth Core](微调工具/01%20Unsloth.md)
 
 ### Claude Code
 
