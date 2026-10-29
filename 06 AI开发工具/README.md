@@ -6,7 +6,8 @@ Claude Code、Codex、模型微调工具，以及相关扩展和集成。
 
 ### 模型微调工具
 
-- [Unsloth Core](微调工具/01%20Unsloth.md)
+- [1. Unsloth 介绍](微调工具/1%20Unsloth/1%20Unsloth介绍.md)
+- [2. Unsloth 实战微调](微调工具/1%20Unsloth/2%20Unsloth%20实战微调.md)
 
 ### Claude Code
 
