@@ -52,6 +52,15 @@ No automated test framework is configured. Quality checks are manual:
 
 ## Commit & Pull Request Guidelines
 
+Agents never commit or push on their own initiative:
+
+- Do not run `git commit`, `git push`, `git tag`, or create/switch/delete branches unless the user explicitly asks in the current conversation.
+- Do not rewrite history (`git reset`, `git rebase`, `git commit --amend`, `git cherry-pick`) unless fixing a commit the agent just created, and state the reason first.
+- When asked to commit, stage only the files the user named. Run `git status` before `git add` so unrelated staged changes are not swept in, and verify `git show --stat HEAD` afterwards.
+- A request to commit is not a request to push; `git push` needs separate approval.
+- Read-only commands (`git status`, `git log`, `git diff`, `git show`, `git blame`) are always allowed.
+- When a commit seems warranted, propose the scope and message in the reply instead of executing it.
+
 Recent commits are short, topic-based messages (for example: `RAG架构`, `skills更新`, `大模型汇总`). Match that style:
 
 - Keep commit subjects brief and specific to one topic.

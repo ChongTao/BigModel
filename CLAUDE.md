@@ -23,4 +23,7 @@
 
 📋 详见 [.claude/rules/git-workflow.md](.claude/rules/git-workflow.md)
 
-**要点**：提交前必须通过敏感信息检查 hook，未通过不得提交。
+**要点**：
+
+- Agent 不主动执行 `git commit` / `git push`，仅在用户明确要求时提交，且只提交用户点名的文件；需要提交时先在回复中给出建议范围和提交信息。
+- 提交前必须通过敏感信息检查 hook，未通过不得提交。

@@ -4,14 +4,14 @@
 
 ## 从这里开始
 
-1. **大模型基础**：[01 LLM 基本概念](01%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E4%B8%8E%E8%AE%AD%E7%BB%83/01%20LLM%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.md) → [01 大模型基础](01%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/README.md)
+1. **大模型基础**：[LLM 基本概念](01%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20LLM%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.md) → [Token](01%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20Token.md) → [01 大模型基础](01%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/README.md)
 2. **检索与 RAG**：[RAG 概述](02%20%E6%A3%80%E7%B4%A2%E4%B8%8ERAG/RAG%E6%B5%81%E7%A8%8B/01%20RAG%E6%A6%82%E8%BF%B0.md) → [02 检索与RAG](02%20%E6%A3%80%E7%B4%A2%E4%B8%8ERAG/README.md)
 3. **Agent 系统**：[Agent 概述](03%20Agent%E4%B8%8EHarness/Agent%E4%B8%8ERuntime/Agent%20%E6%A6%82%E8%BF%B0.md) → [Agent Loop](03%20Agent%E4%B8%8EHarness/Agent%E4%B8%8ERuntime/02%20Agent%20Loop.md) → [03 Agent与Harness](03%20Agent%E4%B8%8EHarness/README.md)
 4. **上线工程**：[04 推理与部署](04%20%E6%8E%A8%E7%90%86%E4%B8%8E%E9%83%A8%E7%BD%B2/README.md) → [生产成本治理](05%20%E7%94%9F%E4%BA%A7%E5%B7%A5%E7%A8%8B/%E6%88%90%E6%9C%AC%E4%B8%8E%E5%BB%B6%E8%BF%9F/%E6%88%90%E6%9C%AC.md) → [05 生产工程](05%20%E7%94%9F%E4%BA%A7%E5%B7%A5%E7%A8%8B/README.md)
 
 ## 知识地图
 
-- [01 大模型基础](01%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/README.md)：模型架构与训练、Prompt与上下文、推理与生成三层基础
+- [01 大模型基础](01%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/README.md)：基础知识、模型架构与训练、Prompt与上下文、推理与生成四层基础
 - [02 检索与RAG](02%20%E6%A3%80%E7%B4%A2%E4%B8%8ERAG/README.md)：NLP、Query、RAG 流程、检索评测与方案
 - [03 Agent与Harness](03%20Agent%E4%B8%8EHarness/README.md)：运行时、记忆、Skill、工具调用、协议、框架与 Harness
 - [04 推理与部署](04%20%E6%8E%A8%E7%90%86%E4%B8%8E%E9%83%A8%E7%BD%B2/README.md)：推理性能、Serving 框架、运行时与网关
