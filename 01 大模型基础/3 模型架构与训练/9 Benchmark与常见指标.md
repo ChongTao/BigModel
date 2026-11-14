@@ -4,7 +4,7 @@
 
 `Benchmark`（基准测试）是一套用于**可重复地评估和比较**模型、系统或方案的方法。它通常不只是一个分数，而由以下部分共同构成：
 
-- 明确的评测目标，例如知识问答、代码生成、检索、推理速度或 Agent 任务执行；
+- 明确的评测目标：例如知识问答、代码生成、检索、推理速度或 Agent 任务执行；
 - 固定或清晰定义的测试数据、任务和输入；
 - 评分规则与一个或多个指标；
 - 可复现的运行条件，例如模型版本、提示词、硬件、并发和采样参数；
@@ -34,9 +34,30 @@
 
 公开、固定的题目便于复现和版本回归，但题目可能进入训练数据或被反复用于调参，导致污染和分数饱和；高分本身不能证明测试集没有污染。可组合使用公开基准、定期更新的数据快照与隔离的业务留出集，并记录题目发布时间、数据版本和污染检查范围。动态题集也要固定数据快照和评分器版本，保证结果可复现。
 
+下表列出一些代表性公开基准，用于说明不同任务的评测方式；它不是排行榜或完整清单。
+
+| 能力面 | 基准示例 | 主要评测内容 |
+| --- | --- | --- |
+| 通用知识与科学推理 | MMLU-Pro、GPQA Diamond | 多学科知识与较高难度的科学问答 |
+| 指令遵循 | IFEval | 可程序验证的格式与指令约束 |
+| 代码 | LiveCodeBench、SWE-bench（含 Verified 子集） | 编程题求解、真实软件问题修复 |
+| 多模态理解 | MMMU | 多学科图文理解与推理 |
+
+比较结果时要记录具体版本、数据切分和评测脚本；基准名称相同也不代表评测条件完全相同。
+
 ### 生成质量评测
 
 用于评估摘要、翻译、问答、写作等开放式生成结果。自动指标有助于快速比较，但通常还需要人工评审或 LLM-as-a-Judge 来判断正确性、完整性、事实性和风格。
+
+### 安全与鲁棒性评测
+
+评估模型面对越狱、有害请求、提示注入和隐私探测等风险场景时，是否遵守预先定义的策略与边界。测试前应明确威胁模型和成功判据，并同时检查应拒绝的请求和安全可答的请求。
+
+- **攻击成功率（Attack Success Rate，ASR）**：测试攻击样本中，模型成功达成预设违规目标的比例；需预先定义成功判据。
+- **过度拒答率**：安全且可回答的样本中，被错误拒绝的比例。
+- **隐私泄露率**：预设隐私探测样本中，模型泄露敏感信息的比例。
+
+应按攻击类型、语言和输入渠道分组报告；对于带工具的系统，还要检查模型拒答后是否仍执行了不该执行的工具动作。
 
 ### 检索与 RAG 评测
 
@@ -72,6 +93,12 @@
 
 其中 `TP`、`FP`、`FN` 分别是真正例、假正例和假负例。风险检测常更重视 Recall，垃圾内容拦截等场景则往往也要严格控制 Precision；不能只报 F1 而不说明取舍。
 
+### 置信度校准与弃答
+
+当任务能得到可比较的概率或置信度时，可评估模型的信心是否与实际正确率相符。二分类中的 **Brier Score** 是预测概率与真实标签之间的均方误差；**ECE（Expected Calibration Error）** 按置信度分箱，计算各箱平均置信度与实际准确率的加权绝对差。两者通常越低越好；ECE 的结果会受分箱方式影响。
+
+如果系统允许弃答或转人工，应同时报告 **Coverage（已回答样本占全部样本的比例）** 和 **Selective Risk（已回答样本中的错误率）**，避免只靠拒答困难样本来抬高准确率。模型用自然语言表达的“信心”不能直接当作概率，需先在留出集上验证校准情况。
+
 ### Exact Match（EM）、Pass Rate 与 pass@k
 
 `Exact Match` 要求预测与标准答案完全一致，适合答案格式唯一的抽取、数学短答或结构化任务；它对合理但表达不同的答案很严格。
@@ -93,6 +120,8 @@
 面对开放回答，可按正确性、完整性、事实性、相关性和表达质量等维度打分或两两比较。人工评审成本较高，可用于关键样本判断和裁判校准；LLM-as-a-Judge 更易规模化，但可能受候选顺序、回答长度和裁判模型偏好影响。
 
 使用裁判模型时，应固定评分标准、提示词和模型版本，尽可能隐藏候选身份并随机化顺序；两两比较可交换候选位置重复评分，检查排序偏差。还应使用人工标注样本抽查裁判的一致性，并报告分歧和误差，而不只报告最终分数。
+
+两两比较可报告平局调整胜率（胜场数加半数平局数，再除以总比较数），并另外报告平局率、比较题数和置信区间；可按题目或会话为单位进行 Bootstrap。汇总多模型对比时可使用 Elo 或 Bradley–Terry 类方法形成相对排名，但排名依赖参评对象和题目分布，不是绝对质量分。
 
 ## 检索和排序常见指标
 
@@ -138,3 +167,10 @@ Benchmark 是一套可复现的比较方法，指标只是其中的计分工具�
 - [Evaluating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374)：代码生成评测与 `pass@k`。
 - [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685)：裁判模型评测及其偏差。
 - [Holistic Evaluation of Language Models](https://arxiv.org/abs/2211.09110)：多维度模型评测设计。
+- [MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark](https://arxiv.org/abs/2406.01574)：多学科知识与推理评测。
+- [A Graduate-Level Google-Proof Q&A Benchmark](https://arxiv.org/abs/2311.12022)：GPQA 科学问答基准。
+- [Instruction-Following Evaluation for Large Language Models](https://arxiv.org/abs/2311.07911)：IFEval 指令遵循基准。
+- [LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code](https://arxiv.org/abs/2403.07974)：持续更新的代码评测基准。
+- [SWE-bench: Can Language Models Resolve Real-World GitHub Issues?](https://arxiv.org/abs/2310.06770)：真实软件问题修复评测。
+- [MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI](https://arxiv.org/abs/2311.16502)：多学科多模态理解评测。
+- [HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal](https://arxiv.org/abs/2402.04249)：红队攻击与安全拒答评测。
