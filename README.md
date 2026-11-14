@@ -11,7 +11,7 @@
 
 ## 知识地图
 
-- [01 大模型基础](01%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/README.md)：基础知识、模型架构与训练、Prompt与上下文、推理与生成四层基础
+- [01 大模型基础](01%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/README.md)：基础知识、Prompt与上下文、模型架构与训练、推理与生成四层基础
 - [02 检索与RAG](02%20%E6%A3%80%E7%B4%A2%E4%B8%8ERAG/README.md)：NLP、Query、RAG 流程、检索评测与方案
 - [03 Agent与Harness](03%20Agent%E4%B8%8EHarness/README.md)：运行时、记忆、Skill、工具调用、协议、框架与 Harness
 - [04 推理与部署](04%20%E6%8E%A8%E7%90%86%E4%B8%8E%E9%83%A8%E7%BD%B2/README.md)：推理性能、Serving 框架、运行时与网关

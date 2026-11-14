@@ -53,7 +53,7 @@ CoT 值得评估的场景包括：
 | ReAct | 结合推理、工具行动和观察结果，重点在 Agent 执行闭环，不只是生成推理文本。 |
 | 推理模型 | 通常涉及专门的后训练和模型调用预算；用 CoT 提示普通模型，不等同于训练或调用推理模型。 |
 
-相关专题见 [04 Self-Ask](04%20Self-Ask.md)、[05 ToT](05%20ToT.md)、[Agent与Harness](../../03%20Agent%E4%B8%8EHarness/README.md) 和 [02 推理时计算与推理模型](02%20%E6%8E%A8%E7%90%86%E6%97%B6%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B.md)。
+相关专题见 [05 Self-Ask](05%20Self-Ask.md)、[06 ToT](06%20ToT.md)、[Agent与Harness](../../03%20Agent%E4%B8%8EHarness/README.md) 和 [03 推理时计算与推理模型](03%20%E6%8E%A8%E7%90%86%E6%97%B6%E8%AE%A1%E7%AE%97%E4%B8%8E%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B.md)。
 
 ## 6. 如何评估 CoT 是否有用
 
