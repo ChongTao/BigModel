@@ -10,7 +10,7 @@
 | 频次惩罚 | 按出现次数加重惩罚 | `frequency_penalty` | 常见 -2 到 2 | 
 | 存在惩罚 | 已出现过的 Token 是否降分 | `presence_penalty` | 常见 -2 到 2 |
 | 重复惩罚 | 引擎自定义的重复抑制规则 | `repetition_penalty` | 通常以 1 为中性 | 
-| 输出预算 | 最多生成多少 Token | `max_tokens`、`max_completion_tokens`、`max_output_tokens`、`maxOutputTokens` | 正整数，受模型上限约束 | 
+| 输出预算 | 限制生成长度或新增 Token 数 | `max_tokens`、`max_completion_tokens`、`max_output_tokens`、`maxOutputTokens`、`max_new_tokens`、`max_length`（Transformers） | 正整数；Transformers 优先用 `max_new_tokens`，`max_length` 计入输入长度。 |
 | 停止条件 | 命中字符串即结束生成 | `stop`、`stop_sequences` | 字符串或字符串数组 |
 | 分数偏置 | 指定 Token ID 加减分 | `logit_bias`、`logitBias` | Token ID 到偏置值的映射 | 
 | 随机种子 | 复现实验的尝试 | `seed` | 整数 | 
@@ -169,7 +169,7 @@
 要点：
 
 - 常见取值范围 -2 到 2，默认 0；正值鼓励引入新话题，负值鼓励延续已有内容。
-- 只判断 Token 是否出现过，不看次数，同数值下影响弱于 `frequency_penalty`。
+- 只判断是否出现过，不看次数。惩罚系数相同时，Token 首次出现时两者的调整量相同；之后 `frequency_penalty` 随出现次数增加，`presence_penalty` 不再累积。
 - 支持情况与 `frequency_penalty` 大体一致：OpenAI、Gemini、vLLM、llama.cpp、Ollama 提供，Anthropic Messages 不提供。
 
 三类重复抑制参数的区别：
@@ -199,6 +199,6 @@
 - [Hugging Face Transformers：GenerationConfig](https://huggingface.co/docs/transformers/main_classes/text_generation#transformers.GenerationConfig)：温度、Top-k、Top-p、Min-p 与惩罚等生成参数。
 - [Hugging Face 博客：Min P Sampling](https://huggingface.co/posts/joaogante/319451541682734)：`min_p` 的动机与推荐取值。
 - [vLLM：SamplingParams](https://docs.vllm.ai/en/stable/api/vllm/sampling_params/)：开源推理服务的采样参数定义。
-- [OpenAI API：Chat Completions](https://developers.openai.com/api/docs/api-reference/chat-completions)：`temperature`、`top_p`、`frequency_penalty`、`presence_penalty`、`logit_bias` 等字段的取值范围与默认值。
+- [OpenAI API：Chat Completions](https://developers.openai.com/docs/api-reference/chat-completions)：`temperature`、`top_p`、`frequency_penalty`、`presence_penalty`、`logit_bias` 等字段的取值范围与默认值。
 - [Anthropic API：Messages](https://platform.claude.com/docs/en/api/messages)：消息接口的生成参数与取值范围。
 - [Gemini API：Generate content](https://ai.google.dev/gemini-api/docs/generate-content) 与 [API reference](https://ai.google.dev/api/generate-content)：生成配置字段名与取值范围。
