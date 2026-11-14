@@ -33,6 +33,10 @@ Agent Runtime、记忆、Skill、工具调用、互操作协议、框架与 Harn
 
 - [grill-me](Skill%E4%B8%8E%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8/%E7%A4%BA%E4%BE%8B/grill-me.md)
 
+#### 开源 Skill
+
+- [索引](Skill%E4%B8%8E%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8/%E5%BC%80%E6%BA%90%20Skill/README.md)
+
 ### 协议与互操作
 
 - [A2A协议](%E5%8D%8F%E8%AE%AE%E4%B8%8E%E4%BA%92%E6%93%8D%E4%BD%9C/A2A%E5%8D%8F%E8%AE%AE.md)

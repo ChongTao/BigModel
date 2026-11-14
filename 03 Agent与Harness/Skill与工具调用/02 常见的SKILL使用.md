@@ -4,9 +4,9 @@
 
 如果还没有看 Skill 的基本定义，建议先读：[1 Agent/2 Skill/01 Skill概述.md](01%20Skill%E6%A6%82%E8%BF%B0.md)
 
-如果后续有新的常见 Skill，建议优先补充到独立目录中，再在本篇增加索引：
+如果后续增加开源 Skill 项目介绍，建议为每个项目单独建文档，并在[开源 Skill 索引](开源%20Skill/README.md)中按任务类型收录；本篇保留通用用法和代表性示例：
 
-- [1 Agent/2 Skill/10 常见Skill/grill-me.md](%E7%A4%BA%E4%BE%8B/grill-me.md)
+- [grill-me](%E7%A4%BA%E4%BE%8B/grill-me.md)
 
 # 二 Skill 的常见使用方式
 
